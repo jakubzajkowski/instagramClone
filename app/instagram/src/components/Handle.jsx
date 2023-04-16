@@ -48,3 +48,24 @@ export const handleFollow=(e,id,username,friend)=>{
       console.log(error);
     });
 }
+export const handlePost= async (e,editor,note,id,setModalPost,modalPost,photo)=>{
+  e.preventDefault()
+  const dataUrl = editor.current.getImage().toDataURL()
+  const res = await fetch(dataUrl)
+  const blob = await res.blob()
+
+  const formData = new FormData();
+
+  formData.append('photo', blob, photo);
+  formData.append('note', note);
+  formData.append('id', id);
+
+  axios.post('/profile/post', formData,
+  {headers: {
+  'Content-Type': 'multipart/form-data'
+  }
+  }).catch((error)=>{
+  console.log(error);
+  });
+  setModalPost(!modalPost)
+}
