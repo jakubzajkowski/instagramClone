@@ -1,0 +1,56 @@
+%inputText{
+    border-radius: 0.2rem;
+    border: 0.5px solid rgb(226, 226, 226);
+    background-color: rgb(248, 248, 248);
+}
+
+.modal__post{
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    left:0;
+    bottom: -10%;
+    display: flex;
+    justify-content: center;
+    padding: 6rem 0rem;
+    right: 0;
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    flex-wrap: wrap;
+    .modal__post--close{
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .modal__post__container{
+        background-color: white;
+        position: relative;
+        padding: 5rem;
+        h2{
+            padding: 1rem;
+        }
+        form{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+            flex-wrap: wrap;
+            input{
+                width: 90%;
+                margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+                padding: 0.5rem;
+            }
+            input[type=submit]{
+                background-color: aqua;
+                border: none;
+                border-radius: 0.5rem;
+                font-weight: bold;
+                color: white;
+                cursor: pointer;
+            }
+            input[type=text]{
+                @extend %inputText;
+            }
+        }
+    }
+}

@@ -1,0 +1,4 @@
+@import '../account/account.scss';
+.myaccount{
+   @extend .account;
+}
