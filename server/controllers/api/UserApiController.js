@@ -42,7 +42,32 @@ const usersSearchApi=async(req,res)=>{
     }).map(y=>y)
     res.json(json.slice(0,10))
 }
+const usersSuggestApi=async (req,res)=>{
+    const {friends} = await Users.findOne({_id: req.params.id}).select('friends');
+    const users = await Promise.all(
+        friends.map(async (x) => {
+            const {friends} = await Users.findOne({username: x}).select('friends');
+            return friends
+        })
+    )
+    const usersFriends=users.join(',').split(',')
+    let uniqueFriends = [];
+    usersFriends.forEach((element) => {
+    if (!uniqueFriends.includes(element)) {
+        uniqueFriends.push(element);
+    }
+    });
+    const arrayOfSuggestedUsers = uniqueFriends.filter(item => !friends.includes(item));
+    const json = await Promise.all(
+        arrayOfSuggestedUsers.map(async (x) => {
+            const user = await Users.findOne({username: x}).select('_id username avatar');
+            return user
+        })
+    )
+    
+    res.json(json.slice(0,10))
+}
 
 module.exports={
-    usersApi,usersIdApi,usersPostIdApi,usersUsernameApi,usersPostsApi,usersSearchApi
+    usersApi,usersIdApi,usersPostIdApi,usersUsernameApi,usersPostsApi,usersSearchApi,usersSuggestApi
 }
