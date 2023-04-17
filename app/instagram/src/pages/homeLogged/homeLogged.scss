@@ -254,7 +254,49 @@
                     }
             }
             .main__sidebar__suggestions{
-
+                .suggestions{
+                    padding: 0.5rem;
+                    display: flex;
+                    width: 100%;
+                    justify-content: space-between;
+                    flex-direction: column;
+                    .friend{
+                        width: 100%;
+                        margin: 0.4rem 0;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        h4{
+                            color: #12c2e9;
+                            cursor: pointer;
+                        }
+                        div{
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            div{
+                                display: flex;
+                                margin: 0 0.4rem;
+                                flex-direction: column;
+                                justify-content: left;
+                                p{
+                                    font-size: 0.8rem;
+                                }
+                                h4{
+                                    color: black;
+                                    font-size: 0.9rem;
+                                }
+                            }
+                            img{
+                                float: left;
+                                width: 35px;
+                                height: 35px;
+                                border-radius: 10rem;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
             }
         }
     }

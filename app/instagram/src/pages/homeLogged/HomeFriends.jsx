@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { motion } from 'framer-motion'
 
 const HomeFriends=({username})=>{
     const [userAvatar, setUserAvatar]=useState(null)
@@ -11,9 +12,9 @@ const HomeFriends=({username})=>{
     },[])
     return(
         <div className="friend__container">
-            <div className="friend__photo">
+            <motion.div className="friend__photo" transition={{duration: 0.4}} whileHover={{rotate: 30}} whileTap={{scale: 1.1}}>
                 <Link to={`account/${username}`} ><img src={`${import.meta.env.VITE_DOMAIN}${userAvatar}`} alt="avatar" /></Link>
-            </div>
+            </motion.div>
             <p>{username}</p>
         </div>
     )

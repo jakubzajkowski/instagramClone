@@ -60,7 +60,7 @@ const usersSuggestApi=async (req,res)=>{
     const arrayOfSuggestedUsers = uniqueFriends.filter(item => !friends.includes(item));
     const json = await Promise.all(
         arrayOfSuggestedUsers.map(async (x) => {
-            const user = await Users.findOne({username: x}).select('_id username avatar');
+            const user = await Users.findOne({username: x}).select('_id username avatar full_name');
             return user
         })
     )
