@@ -6,6 +6,7 @@ import { LoggedContext } from '../../LoggedContext'
 import HomePost from './HomePost'
 import useAlgorithm from './useAlgorithm'
 import HomeFriends from './HomeFriends'
+import SuggestedFollows from './SuggestedFollows'
 
 
 function HomeLogged() {
@@ -32,7 +33,8 @@ function HomeLogged() {
             <p>{isLogged.username}</p>
           </div>
           <div className='main__sidebar__suggestions'>
-            <p>Suggestions for you</p>
+            <p style={{margin: '0.5rem 0'}}>Suggestions for you</p>
+            <SuggestedFollows friends={isLogged.friends}/>
           </div>
         </div>
       </div>
