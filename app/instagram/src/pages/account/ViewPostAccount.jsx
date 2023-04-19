@@ -16,7 +16,7 @@ const ViewPostAccount=(props)=>{
             axios.get(`/api/users/${id}/${postId}`).then(({data})=>{
                 setData(data)
             }).catch((err)=>console.log(err));
-        },500)
+        },2000)
         return () => clearInterval(post);
     },[data])
 

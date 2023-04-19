@@ -8,8 +8,6 @@ const useAlgorithm=({friends})=>{
     useEffect(()=>{
         const post = setInterval(() => {
             const requests = endpoints.map((url) => axios.get(url));
-
-            // Loop through the requests and output the data.
             axios.all(requests).then((responses) => {
                 let data = [];
             
@@ -18,9 +16,9 @@ const useAlgorithm=({friends})=>{
               });
               setPosts(data)
             });
-      },500)
+      },1000)
         return () => clearInterval(post);
-    },[])
+    },[endpoints])
 
     return posts
 }

@@ -9,21 +9,23 @@ import ViewPost from '../../components/ViewPost'
 import MainPosts from '../../components/MainPosts'
 import ProfileMobile from './ProfileMobile'
 import ProfileDesktop from './ProfileDesktop'
+import useIsLogged from '../../hooks/useIsLogged'
 
 function Profile() {
-  const { isLogged,mobile } = useContext(LoggedContext);
+  const { mobile } = useContext(LoggedContext);
   const [modalPost,setModalPost] = useState(false)
   const [modalViewPost,setViewModalPost] = useState(false)
   const [modalViewPostData,setModalViewPostData]=useState('')
+  const {isLogged,loading: loadingIsLogged,error: errorIsLogged}=useIsLogged()
 
   const handelViewPostModal=(x)=>{
     setViewModalPost(!modalViewPost)
     setModalViewPostData(x)
   }
 
-  return isLogged ? (
+  if (loadingIsLogged) return <Loader/>
+  else if (isLogged) return (
     <div className="myaccount">
-      <Loader />
       <Nav setModalPost={setModalPost} modalPost={modalPost}/>
       {modalPost ? <Post setModalPost={setModalPost} modalPost={modalPost} /> : ''}
       {modalViewPost ? <ViewPost setViewModalPost={setViewModalPost} modalViewPost={modalViewPost} data={modalViewPostData}/> : ''}
@@ -35,9 +37,9 @@ function Profile() {
         </div>
       </div>
     </div>
-  ) : (
+  )
+  else return (
     <div>
-      <Loader/>
       Your Are Not Logged
     </div>
   )
