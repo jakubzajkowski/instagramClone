@@ -11,7 +11,7 @@ import axios from "axios";
 
 
 function HomeLogged() {
-  const { isLogged,mobile,users } = useContext(LoggedContext);
+  const { isLogged } = useContext(LoggedContext);
   const posts=useAlgorithm(isLogged)
   const [suggestions, setSuggestions]=useState(null)
   useEffect(()=>{
@@ -40,7 +40,7 @@ function HomeLogged() {
           <div className='main__sidebar__suggestions'>
             <p style={{margin: '0.5rem 0'}}>Suggestions for you</p>
             <div className='suggestions'>
-              {suggestions?.map((x)=><SuggestedFollows data={x} isLogged={isLogged}/>)}
+              {suggestions?.username ? suggestions.map((x)=><SuggestedFollows data={x} isLogged={isLogged}/>) : ''}
             </div>
           </div>
         </div>

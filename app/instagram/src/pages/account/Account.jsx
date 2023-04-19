@@ -1,89 +1,41 @@
 import { useState,useEffect,useContext } from 'react'
 import { motion } from "framer-motion"
 import './account.scss'
+import { useParams } from 'react-router-dom'
 import Nav from '../../components/Nav'
 import Loader from '../../components/Loader'
 import { LoggedContext } from '../../LoggedContext'
 import ViewPostAccount from './ViewPostAccount'
-import { handleFollow } from '../../components/Handle'
+import useUsers from '../../hooks/useUsers'
+import AccountMobile from './AccountMobile'
+import AccountDesktop from './AccountDesktop'
 
-function Account(props) {
-  const {avatar, posts, friends, followers,username, about, _id}=props.data
-  const { mobile, isLogged } = useContext(LoggedContext);
+function Account() {
+  const { user }= useParams()
+  const {users,loading,error}=useUsers(user)
+  const { mobile } = useContext(LoggedContext);
   const [modalViewPost,setViewModalPost] = useState(false)
   const [modalViewPostData,setModalViewPostData]=useState('')
-  
 
-
-  
   const handelViewPostModal=(x)=>{
     setViewModalPost(!modalViewPost)
     setModalViewPostData(x)
   }
-
-  return (
+  
+  if (loading) return <Loader/>
+  else if (users) return (
     <div className="account">
-      <Loader />
       <Nav />
-      {modalViewPost ? <ViewPostAccount setViewModalPost={setViewModalPost} postId={modalViewPostData._id} modalViewPost={modalViewPost} data={modalViewPostData} id={_id} avatar={avatar} username={username}/> : ''}
+      {modalViewPost ? <ViewPostAccount setViewModalPost={setViewModalPost} postId={modalViewPostData._id} modalViewPost={modalViewPost} data={modalViewPostData} id={users._id} avatar={users.avatar} username={users.username}/> : ''}
       <div className='main'>
       {(mobile.matches) ? 
-        <div className='main__profile'>
-        <div className='main__profile__info'>
-            <h3><h3>{username}</h3></h3>
-            <div className='info__name'>
-                <div className='main__profile__avatar'>
-                <img src={`${import.meta.env.VITE_DOMAIN}${avatar}`} alt="" />
-                </div>
-                <div className='info__name__button'> 
-                    <button>Follow</button>
-                    <button>Message</button>
-                    <button>Edit</button>
-                </div>
-            </div>
-            <div className='info__note'>
-                    <h4>{username}</h4>
-                    <p>{about}</p>
-            </div>
-            <div className='info__stats'>
-                <ul>
-                        <li>{posts.length} posts</li>
-                        <li>{followers.length} followers</li>
-                        <li>{friends.length} following</li>
-                </ul>
-            </div>
-        </div>
-        </div> 
-        :
-        <div className='main__profile'>
-            <div className='main__profile__avatar'>
-                <img src={`${import.meta.env.VITE_DOMAIN}${avatar}`} alt="" />
-            </div>
-            <div className='main__profile__info'>
-                <div className='info__name'>
-                    <h3>{username}</h3>
-                    <div className='info__name__button'> 
-                        <button onClick={(e)=>handleFollow(e,isLogged._id,isLogged.username,username)}>Follow</button>
-                        <button>Message</button>
-                    </div>
-                </div>
-                <div className='info__stats'>
-                    <ul>
-                        <li>{posts.length} posts</li>
-                        <li>{followers.length} followers</li>
-                        <li>{friends.length} following</li>
-                    </ul>
-                </div>
-                <div className='info__note'>
-                    <h4>{username}</h4>
-                    <p>{about}</p>
-                </div>
-            </div>
-        </div>
-        }
-        <hr />
+      <AccountMobile username={users.username} avatar={users.avatar} about={users.about} posts={users.posts} followers={users.followers} friends={users.friends}/> 
+      :
+      <AccountDesktop username={users.username} avatar={users.avatar} about={users.about} posts={users.posts} followers={users.followers} friends={users.friends}/>
+      }
+      <hr />
         <div className='main__posts'>
-          {posts.map(x=>(<div key={x.note} className='post' onClick={()=>handelViewPostModal(x)}>
+          {users.posts.map(x=>(<div key={x.note} className='post' onClick={()=>handelViewPostModal(x)}>
               <img src={`${import.meta.env.VITE_DOMAIN}${x.img}`} alt="" />
               {(mobile.matches) ? '' : <motion.div className='post_options' initial={{opacity: 0}} whileHover={{opacity:0.75}} transition={{duration:0.5}}>
                 <svg className='post_options_icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
@@ -96,6 +48,8 @@ function Account(props) {
       </div>
     </div>
   )
+  else return <div>xd</div>
+
 }
 
 export default Account

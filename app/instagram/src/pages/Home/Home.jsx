@@ -1,18 +1,18 @@
 import { useState, useContext} from 'react'
-import Loader from './components/Loader'
+import Loader from '../../components/Loader'
 import './home.scss'
 import { Link, redirect } from "react-router-dom";
 import axios from 'axios'
-import phoneImg from './img/PngItem_1091605.png'
-import instagramImg from './img/toppng.com-instagram-word-logo-1887x536.png'
-import { LoggedContext } from './LoggedContext';
-import HomeLogged from './pages/homeLogged/HomeLogged';
+import phoneImg from '../../img/PngItem_1091605.png'
+import instagramImg from '../../img/toppng.com-instagram-word-logo-1887x536.png'
+import { LoggedContext } from '../../LoggedContext';
+import HomeLogged from '../homeLogged/HomeLogged';
 
 function Home() {
   const [username,setUsername]=useState('')
   const [password,setPassword]=useState('')
   const [error,setError] = useState('')
-  const { isLogged,mobile } = useContext(LoggedContext);
+  const { isLogged,loadingIsLogged } = useContext(LoggedContext);
   const handleSubmit=(e)=>{
     e.preventDefault()
     axios.post('/login', {
@@ -22,17 +22,17 @@ function Home() {
     .then((response)=>{
       setError((typeof response.data.error != "undefined") ? response.data.error : '')
       if (response.data.error==''){
-        redirect('/profile')
+         window.location.href='/'
       }
-      // window.location.href='/'
     })
     .catch((error)=>{
       console.log(error);
     });
   }
-  return isLogged ? (<HomeLogged/>) :(
+  if (loadingIsLogged) return <Loader/>
+  else if (isLogged) return <HomeLogged/>
+  else return (
     <div className="home">
-        <Loader />
         <div className='home__form'>
           <img className='home__form__img' src={phoneImg} />
           <form>
@@ -74,8 +74,8 @@ function Home() {
             <li>Meta Verified</li>
           </ul>
         </div>
-    </div>
-  )
+    </div>)
+
 }
 
 export default Home

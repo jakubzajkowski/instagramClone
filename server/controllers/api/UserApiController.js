@@ -21,13 +21,13 @@ const usersPostsApi=async(req,res)=>{
     const dateStart = new Date(Date.now());
     dateStart.setMonth(dateEnd.getMonth() - 1);
     const user = await Users.findOne({username: req.params.username,'posts.date': { $gt: dateStart,$lt: dateEnd}}).select('_id username avatar posts')
-    const json = user.posts.map((x)=>{
+    const json = user?.posts.map((x)=>{
         return {img:x.img,note:x.note,date:x.date,likes:x.likes,comments:x.comments,user_id:user._id,_id: x._id,username: user.username,avatar:user.avatar}
     }) 
     res.json(json)
 }
 const usersUsernameApi=async(req,res)=>{
-    const user = await Users.findOne({username: req.params.username}).select('_id username avatar posts')
+    const user = await Users.findOne({username: req.params.username}).select('_id about username avatar date friends posts followers')
     res.json(user)
 }
 const usersSearchApi=async(req,res)=>{
