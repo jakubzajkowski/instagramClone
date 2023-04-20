@@ -12,7 +12,7 @@ import axios from "axios";
 
 function HomeLogged() {
   const { isLogged } = useContext(LoggedContext);
-  const posts=useAlgorithm(isLogged)
+  const posts=useAlgorithm(isLogged._id)
   const [suggestions, setSuggestions]=useState(null)
   useEffect(()=>{
     axios.get(`/api/suggest/${isLogged._id}`).then(({data})=>setSuggestions(data)).catch(err=>console.log(err))
@@ -40,7 +40,7 @@ function HomeLogged() {
           <div className='main__sidebar__suggestions'>
             <p style={{margin: '0.5rem 0'}}>Suggestions for you</p>
             <div className='suggestions'>
-              {suggestions?.username ? suggestions.map((x)=><SuggestedFollows data={x} isLogged={isLogged}/>) : ''}
+              {suggestions?.map(x=><SuggestedFollows data={x} isLogged={isLogged}/>)}
             </div>
           </div>
         </div>

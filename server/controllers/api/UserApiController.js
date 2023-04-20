@@ -1,4 +1,4 @@
-const Users= require('../../models/users')
+const Users= require('../../models/users');
 
 const usersApi=async(req,res)=>{
     const json = await Users.find({}).select('_id about username avatar date friends posts followers');
@@ -64,10 +64,31 @@ const usersSuggestApi=async (req,res)=>{
             return user
         })
     )
+    const readyJson=json.filter((element)=>{
+        if (element==null)return false
+        else return true
+    }).map((x)=>x)
     
-    res.json(json.slice(0,10))
+    res.json(readyJson.slice(0,10))
+}
+const usersForYouApi=async (req,res)=>{
+    const {friends} = await Users.findOne({_id: req.params.id}).select('friends');
+    const users = await Promise.all(
+        friends.map(async (x) => {
+            const posts = await Users.findOne({username: x}).select('posts username _id avatar');
+            return posts
+        })
+    )
+    const json =[]
+    const allPosts=users.map((info)=>{
+        info.posts.map((post)=>{
+            json.push({post: post,username: info.username, avatar: info.avatar,_id: info._id})
+        })
+    })
+    
+    res.json(json)
 }
 
 module.exports={
-    usersApi,usersIdApi,usersPostIdApi,usersUsernameApi,usersPostsApi,usersSearchApi,usersSuggestApi
+    usersApi,usersIdApi,usersPostIdApi,usersUsernameApi,usersPostsApi,usersSearchApi,usersSuggestApi,usersForYouApi
 }

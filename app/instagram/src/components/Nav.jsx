@@ -30,7 +30,7 @@ function Nav(props) {
     handleFetchUser(value)
     setSearchValue(value)
   }
-  console.log(searchValue)
+
 
   return isLogged ? (
     <div className="header">

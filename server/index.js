@@ -7,7 +7,6 @@ const path = require('path')
 const port = process.env.PORT
 const router = require('./routes/routes')
 const api = require('./routes/api')
-const Users = require('./models/users')
 
 const app = express()
 app.use(bodyParser.urlencoded({ extended: false }))
