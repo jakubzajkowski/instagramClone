@@ -30,7 +30,6 @@ function Register() {
   }
   return (
     <div className="register">
-        <Loader />
         <div className='home__form'>
           <form>
             <div className='home__form__login'>

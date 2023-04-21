@@ -1,6 +1,7 @@
 import React,{useContext} from "react";
 import { handleFollow } from '../../components/Handle'
 import { LoggedContext } from "../../LoggedContext";
+import checkFollowed from '../../img/check.png'
 
 const AccountDesktop=({username, avatar, about, posts, followers, friends})=>{
     const { isLogged } = useContext(LoggedContext);
@@ -11,9 +12,9 @@ const AccountDesktop=({username, avatar, about, posts, followers, friends})=>{
         </div>
         <div className='main__profile__info'>
             <div className='info__name'>
-                <h3>{username}</h3>
+                <h3>{username}{followers.includes(isLogged.username) ? <img style={{margin:'0 0.2rem',display:'inline-block',verticalAlign:'middle',width: '25px',height:'25px'}} src={checkFollowed} rel='followed'/> : ''}</h3>
                 <div className='info__name__button'> 
-                    <button onClick={(e)=>handleFollow(e,isLogged._id,isLogged.username,username)}>Follow</button>
+                    <button onClick={(e)=>handleFollow(e,isLogged._id,isLogged.username,username)}>{followers.includes(isLogged.username) ? 'Followed' : 'Follow'}</button>
                     <button>Message</button>
                 </div>
             </div>

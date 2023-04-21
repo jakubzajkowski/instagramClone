@@ -12,7 +12,7 @@ import AccountDesktop from './AccountDesktop'
 
 function Account() {
   const { user }= useParams()
-  const {users,loading,error}=useUsers(user)
+  const {users,error}=useUsers(user)
   const { mobile } = useContext(LoggedContext);
   const [modalViewPost,setViewModalPost] = useState(false)
   const [modalViewPostData,setModalViewPostData]=useState('')
@@ -22,7 +22,7 @@ function Account() {
     setModalViewPostData(x)
   }
   
-  if (loading) return <Loader/>
+  if (!users || users.username != user) return <Loader/>
   else if (users) return (
     <div className="account">
       <Nav />

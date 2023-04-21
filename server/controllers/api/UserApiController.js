@@ -44,32 +44,39 @@ const usersSearchApi=async(req,res)=>{
 }
 const usersSuggestApi=async (req,res)=>{
     const {friends} = await Users.findOne({_id: req.params.id}).select('friends');
-    const users = await Promise.all(
-        friends.map(async (x) => {
-            const {friends} = await Users.findOne({username: x}).select('friends');
-            return friends
-        })
-    )
-    const usersFriends=users.join(',').split(',')
-    let uniqueFriends = [];
-    usersFriends.forEach((element) => {
-    if (!uniqueFriends.includes(element)) {
-        uniqueFriends.push(element);
+    if (friends.length>0){
+        const users = await Promise.all(
+            friends.map(async (x) => {
+                const {friends} = await Users.findOne({username: x}).select('friends');
+                return friends
+            })
+        )
+        const usersFriends=users.join(',').split(',')
+        let uniqueFriends = [];
+        usersFriends.forEach((element) => {
+        if (!uniqueFriends.includes(element)) {
+            uniqueFriends.push(element);
+        }
+        });
+        const arrayOfSuggestedUsers = uniqueFriends.filter(item => !friends.includes(item));
+        const json = await Promise.all(
+            arrayOfSuggestedUsers.map(async (x) => {
+                const user = await Users.findOne({username: x}).select('_id username avatar full_name');
+                return user
+            })
+        )
+        const readyJson=json.filter((element)=>{
+            if (element==null)return false
+            else return true
+        }).map((x)=>x)
+        
+        res.json(readyJson.slice(0,10))
     }
-    });
-    const arrayOfSuggestedUsers = uniqueFriends.filter(item => !friends.includes(item));
-    const json = await Promise.all(
-        arrayOfSuggestedUsers.map(async (x) => {
-            const user = await Users.findOne({username: x}).select('_id username avatar full_name');
-            return user
-        })
-    )
-    const readyJson=json.filter((element)=>{
-        if (element==null)return false
-        else return true
-    }).map((x)=>x)
+    else{
+        const users = await Users.find({}).sort({date: 1}).select('_id username avatar full_name');
+        res.json(users.slice(0,10))
+    }
     
-    res.json(readyJson.slice(0,10))
 }
 const usersForYouApi=async (req,res)=>{
     const {friends} = await Users.findOne({_id: req.params.id}).select('friends');

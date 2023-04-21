@@ -13,7 +13,7 @@ const AccountMobile=({username, avatar, about, posts, followers, friends})=>{
                 <img src={`${import.meta.env.VITE_DOMAIN}${avatar}`} alt="" />
                 </div>
                 <div className='info__name__button'> 
-                    <button onClick={(e)=>handleFollow(e,isLogged._id,isLogged.username,username)}>Follow</button>
+                    <button onClick={(e)=>handleFollow(e,isLogged._id,isLogged.username,username)}>{followers.includes(isLogged.username) ? 'Followed' : 'Follow'}</button>
                     <button>Message</button>
                     <button>Edit</button>
                 </div>

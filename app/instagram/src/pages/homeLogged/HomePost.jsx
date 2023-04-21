@@ -3,16 +3,31 @@ import { LoggedContext } from "../../LoggedContext";
 import { handleComment,handleLike } from "../../components/Handle";
 import Comment from '../../components/Comment'
 import {Link} from 'react-router-dom'
+import {motion} from 'framer-motion'
 
 const HomePost=(props)=>{
     const { isLogged } = useContext(LoggedContext);
     const [comment,setComment]=useState(null)
     const [data,setData]=useState(props.data)
     const [handleCommentView,setHandleCommentView]=useState(false)
+    const [liked, setLiked]=useState(false)
 
     useEffect(()=>{
       setData(props.data)
     })
+
+    const variants = {
+      visible: { opacity: [0.9,0],display: 'flex'},
+      hidden: { opacity: [0.9,0],display: 'flex'},
+    }
+    const variantsHeart = {
+      visible: { opacity: 1, fill:['rgb(175, 175, 175)','red'], scale: [0.8,1.5,1.2] },
+      hidden: { opacity: 1, fill:['rgb(175, 175, 175)','red'], scale: [0.8,1.5,1.2] },
+    }
+    const handleDoubleClick=(e)=>{
+      setLiked(!liked)
+      handleLike(e,data.user_id,isLogged.username,data._id)
+    }
 
     return(
     <div className='main__content__post'>
@@ -24,7 +39,10 @@ const HomePost=(props)=>{
       <svg style={{width: '35px',height: '35px',cursor: 'pointer'}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/></svg>
     </div>
     <div className='post__photo'>
-      <img src={`${import.meta.env.VITE_DOMAIN}${data.img}`} alt="" />
+      <img src={`${import.meta.env.VITE_DOMAIN}${data.img}`} alt="post"/>
+      <motion.div onDoubleClick={(e)=>handleDoubleClick(e)} initial="hidden" animate={liked ? "visible" : 'hidden'} transition={{duration: 0.8,bounce: 0.25}} variants={variants} className="post__photo--animation">
+        <motion.svg initial="hidden" animate={liked ? "visible" : 'hidden'} transition={{duration: 0.7,bounce: 0.25}} variants={variantsHeart} className="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></motion.svg>
+      </motion.div>
     </div>
     <div className='post__options'>
       <div>

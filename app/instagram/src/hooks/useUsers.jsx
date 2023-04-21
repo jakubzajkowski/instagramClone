@@ -7,7 +7,7 @@ const useUsers=(username)=>{
     const [error,setError]=useState(null)
 
     useEffect(()=>{
-        setLoading(true)
+        const load = setInterval(() => {
           axios.get(`/api/username/${username}`).then(({data}) => {
             setUsers(data)
           }).catch((err)=>{
@@ -15,7 +15,9 @@ const useUsers=(username)=>{
           }).finally(()=>{
             setLoading(false)
           })
-        },[])
+        },2000)
+        return () => clearInterval(load);
+        },[username])
 
     return {users,loading,error}
 }

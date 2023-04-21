@@ -10,6 +10,7 @@ import MainPosts from '../../components/MainPosts'
 import ProfileMobile from './ProfileMobile'
 import ProfileDesktop from './ProfileDesktop'
 import useIsLogged from '../../hooks/useIsLogged'
+import addPhoto from '../../components/img/add-image.png' 
 
 function Profile() {
   const { mobile } = useContext(LoggedContext);
@@ -33,7 +34,7 @@ function Profile() {
         {(mobile.matches) ? <ProfileMobile data={isLogged}/>:<ProfileDesktop data={isLogged}/>} 
         <hr />
         <div className='main__posts'>
-          {isLogged.posts.map((x)=><MainPosts x={x} mobile={mobile} handelViewPostModal={handelViewPostModal}/>)}
+          {isLogged.posts[0] ? isLogged.posts.map((x)=><MainPosts x={x} mobile={mobile} handelViewPostModal={handelViewPostModal}/>) : <img onClick={()=>setModalPost(!modalPost)} style={{cursor:'pointer',margin:'5rem 0',height:'150px',width: '150px'}} src={addPhoto} rel="add" />}
         </div>
       </div>
     </div>
