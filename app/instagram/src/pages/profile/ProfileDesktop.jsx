@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import useNumbers from "../../hooks/useNumbers";
 
 const ProfileDesktop=({data:{username,avatar,about,posts,followers,friends}})=>{
     return(
@@ -12,14 +14,14 @@ const ProfileDesktop=({data:{username,avatar,about,posts,followers,friends}})=>{
                     <div className='info__name__button'> 
                         <button>Follow</button>
                         <button>Message</button>
-                        <button>Edit</button>
+                        <Link to='/profile/edit' style={{color: 'black', textDecoration: 'none'}}><button>Edit</button></Link>
                     </div>
                 </div>
                 <div className='info__stats'>
                     <ul>
-                        <li>{posts.length} posts</li>
-                        <li>{followers.length} followers</li>
-                        <li>{friends.length} following</li>
+                        <li>{useNumbers(posts.length)} posts</li>
+                        <li>{useNumbers(followers.length)} followers</li>
+                        <li>{useNumbers(friends.length)} following</li>
                     </ul>
                 </div>
                 <div className='info__note'>

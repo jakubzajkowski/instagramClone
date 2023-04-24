@@ -4,6 +4,7 @@ import { handleComment,handleLike } from "../../components/Handle";
 import Comment from '../../components/Comment'
 import {Link} from 'react-router-dom'
 import {motion} from 'framer-motion'
+import useNumbers from "../../hooks/useNumbers";
 
 const HomePost=(props)=>{
     const { isLogged } = useContext(LoggedContext);
@@ -53,9 +54,9 @@ const HomePost=(props)=>{
       <svg className='icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M0 48C0 21.5 21.5 0 48 0l0 48V441.4l130.1-92.9c8.3-6 19.6-6 27.9 0L336 441.4V48H48V0H336c26.5 0 48 21.5 48 48V488c0 9-5 17.2-13 21.3s-17.6 3.4-24.9-1.8L192 397.5 37.9 507.5c-7.3 5.2-16.9 5.9-24.9 1.8S0 497 0 488V48z"/></svg>
     </div>
     <div className='post__info'>
-      <p>{data.likes?.length} likes</p>
+      <p>{useNumbers(data.likes?.length)} likes</p>
       <p className='post__info__about'><span>{data.username} </span> {data.note}</p>
-      <p style={{margin: '0.5rem 0'}} className="post__info__comments" onClick={()=>setHandleCommentView(!handleCommentView)}>View all the {data.comments?.length} comments</p>
+      <p style={{margin: '0.5rem 0'}} className="post__info__comments" onClick={()=>setHandleCommentView(!handleCommentView)}>View all the {useNumbers(data.comments?.length)} comments</p>
     </div>
     <div style={{transition: "all .4s",height:handleCommentView ? '200px':'0px', visibility: handleCommentView ? "visible": "hidden",opacity: handleCommentView ? "1" : "0",}} className='post__comments'>
       {data.comments?.map((x)=><Comment avatar={x.avatar} content={x.content} date={x.date} user={x.user} />)}

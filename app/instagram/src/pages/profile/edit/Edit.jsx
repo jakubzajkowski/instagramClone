@@ -14,7 +14,7 @@ const Edit=()=>{
     const {register, handleSubmit, watch, formState: { errors }} = useForm();
     const [serverError,setServerError]=useState('')
 
-    const {isLogged} = useContext(LoggedContext);
+    const {isLogged,loadingisLogged} = useContext(LoggedContext);
     const onSubmit= async ({name,email,username,bio,phone,gender})=>{
         sendEdit(photo,name,username,bio,email,phone,gender,isLogged._id,setServerError)
     }
@@ -25,9 +25,9 @@ const Edit=()=>{
       }
     }
 
-    return isLogged ? (<div className="edit">
+    if (loadingisLogged) return <Loader />
+    else if (isLogged) return (<div className="edit">
     <Nav />
-    <Loader />
     <div className='profile__form'>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className='profile__form__edit'>
@@ -78,8 +78,8 @@ Provide your personal information, even if the account is used for a business, a
         <li>Meta Verified</li>
       </ul>
     </div>
-</div>) : (
-<div>
+</div>) 
+  else return (<div>
   <Loader/>
   <p>Not Logged</p>
 </div>

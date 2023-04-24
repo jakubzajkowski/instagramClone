@@ -2,6 +2,7 @@ import React,{useContext} from "react";
 import { handleFollow } from '../../components/Handle'
 import { LoggedContext } from "../../LoggedContext";
 import checkFollowed from '../../img/check.png'
+import useNumbers from "../../hooks/useNumbers";
 
 const AccountDesktop=({username, avatar, about, posts, followers, friends})=>{
     const { isLogged } = useContext(LoggedContext);
@@ -20,9 +21,9 @@ const AccountDesktop=({username, avatar, about, posts, followers, friends})=>{
             </div>
             <div className='info__stats'>
                 <ul>
-                    <li>{posts.length} posts</li>
-                    <li>{followers.length} followers</li>
-                    <li>{friends.length} following</li>
+                    <li>{useNumbers(posts.length)} posts</li>
+                    <li>{useNumbers(followers.length)} followers</li>
+                    <li>{useNumbers(friends.length)} following</li>
                 </ul>
             </div>
             <div className='info__note'>
