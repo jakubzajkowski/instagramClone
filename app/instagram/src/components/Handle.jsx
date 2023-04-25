@@ -69,3 +69,17 @@ export const handlePost= async (e,editor,note,id,setModalPost,modalPost,photo)=>
   });
   setModalPost(!modalPost)
 }
+export const handleDeleteNotifications=(e,id,notification_id)=>{
+  e.preventDefault()
+  axios.post('/notifications', {
+      id: id,
+      notification_id: notification_id,
+      date: Date.now(),
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}

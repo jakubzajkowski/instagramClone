@@ -67,6 +67,22 @@ const Users = mongoose.model('users', {
             },
         ],
     }
+    ],
+    notifications: [
+        {avatar: {
+            type: String,
+        },
+        username: {
+            type: String,
+        },
+        type: {
+            type: String,
+        },
+        date: {
+            type: Date,
+            default: Date.now
+        },
+    }
     ]
 });
 

@@ -14,6 +14,11 @@ const CommentController =async (req, res) => {
             x.comments.push(update)
         }
     })
+    await users.notifications.push({avatar: avatar,
+    username: username,
+    type: `comment your post`,
+    date: Date.now(),
+})
     await users.save()
     res.json({comment: true})
 };

@@ -1,11 +1,11 @@
 const Users= require('../../models/users');
 
 const usersApi=async(req,res)=>{
-    const json = await Users.find({}).select('_id about username avatar date friends posts followers');
+    const json = await Users.find({}).select('_id about username avatar date friends posts followers notifications');
     res.json(json)
 }
 const usersIdApi=async(req,res)=>{
-    const json = await Users.findOne({_id: req.params.id}).select('_id about username avatar date friends posts followers');
+    const json = await Users.findOne({_id: req.params.id}).select('_id about username avatar date friends posts followers notifications');
     res.json(json)
 }
 const usersPostIdApi=async(req,res)=>{
@@ -27,7 +27,7 @@ const usersPostsApi=async(req,res)=>{
     res.json(json)
 }
 const usersUsernameApi=async(req,res)=>{
-    const user = await Users.findOne({username: req.params.username}).select('_id about username avatar date friends posts followers')
+    const user = await Users.findOne({username: req.params.username}).select('_id about username avatar date friends posts followers notifications')
     res.json(user)
 }
 const usersSearchApi=async(req,res)=>{

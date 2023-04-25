@@ -14,6 +14,7 @@ const PostController= require('../controllers/PostController')
 const CommentController= require('../controllers/CommentController')
 const LikeController= require('../controllers/LikeController')
 const FollowController= require('../controllers/FollowController')
+const NotificationsController = require('../controllers/NotificationsController')
 
 const routers=['/','/login','/register','/account/*','/profile','/profile/*']
 
@@ -30,6 +31,7 @@ router.post('/like',LikeController)
 router.post('/logout',LogOutController)
 router.get('/auth/account',auth,AccountController)
 router.post('/register',registerUser)
+router.post('/notifications',NotificationsController)
 
 
 

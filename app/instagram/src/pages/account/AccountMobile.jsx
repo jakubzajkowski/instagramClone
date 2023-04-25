@@ -16,7 +16,6 @@ const AccountMobile=({username, avatar, about, posts, followers, friends})=>{
                 <div className='info__name__button'> 
                     <button onClick={(e)=>handleFollow(e,isLogged._id,isLogged.username,username)}>{followers.includes(isLogged.username) ? 'Followed' : 'Follow'}</button>
                     <button>Message</button>
-                    <button>Edit</button>
                 </div>
             </div>
             <div className='info__note'>

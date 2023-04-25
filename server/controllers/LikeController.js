@@ -7,7 +7,11 @@ const LikeController =async (req, res) => {
         await Users.updateOne({_id:id, 'posts._id': postId},{$pull: {"posts.$.likes": username}})
     }
     else{
-        await Users.updateOne({_id:id, 'posts._id': postId},{$push: {"posts.$.likes": username}})
+        await Users.updateOne({_id:id, 'posts._id': postId},{$push: {"posts.$.likes": username, notifications : {avatar: '/uploads/user.png',
+        username: username,
+        type: 'liked your post',
+        date: Date.now(),
+}}})
     }
     res.json({like: true})
 };

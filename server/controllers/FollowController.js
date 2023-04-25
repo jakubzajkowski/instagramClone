@@ -7,6 +7,11 @@ const FollowController = async (req, res) => {
     if (!following.friends.includes(friend)){
         following.friends.push(friend)
         follower.followers.push(username)
+        follower.notifications.push( {avatar: following.avatar,
+        username: username,
+        type: 'followed you',
+        date: Date.now(),
+    })
         following.save()
         follower.save()
     }
