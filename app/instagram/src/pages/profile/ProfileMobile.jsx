@@ -1,5 +1,6 @@
 import React from "react";
 import useNumbers from "../../hooks/useNumbers";
+import { Link } from 'react-router-dom'
 
 const ProfileMobile=({data:{username,avatar,about,posts,followers,friends}})=>{
     return (
@@ -13,7 +14,7 @@ const ProfileMobile=({data:{username,avatar,about,posts,followers,friends}})=>{
                 <div className='info__name__button'> 
                     <button>Follow</button>
                     <button>Message</button>
-                    <button>Edit</button>
+                    <Link to='/profile/edit' style={{color: 'black', textDecoration: 'none'}}><button>Edit</button></Link>
                 </div>
             </div>
             <div className='info__note'>

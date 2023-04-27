@@ -18,6 +18,11 @@
             width: 100%;
             padding: 1rem;
         }
+        @media(max-width: 1200px) and (min-width: 950px)  {
+            justify-content: center;
+            width: 80%;
+            padding: 1rem;
+        }
         form{
             width: 45%;
             padding: 1rem;

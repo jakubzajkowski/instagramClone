@@ -18,6 +18,22 @@ const EditController =async (req, res) => {
         }
         else{
             const update = { full_name, username,about,email,number,gender,avatar };
+            await Users.updateMany(
+                { 'friends': usersUpdate.username },
+                { $set: { "friends.$" : username } }
+            )
+            await Users.updateMany(
+                { 'followers': usersUpdate.username },
+                { $set: { "followers.$" : username } }
+            )
+            await Users.updateMany(
+                { 'posts.likes': usersUpdate.username },
+                { $set: { "posts.$.likes" : username } }
+            )
+            await Users.updateMany(
+                { 'posts.comments.user': usersUpdate.username },
+                { $set: { "posts.$[].comments.$.user" : username } }
+            )
             await usersUpdate.updateOne(update);
             res.json({error: null});
         }
