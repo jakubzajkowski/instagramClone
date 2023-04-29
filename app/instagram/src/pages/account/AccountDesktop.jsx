@@ -15,7 +15,7 @@ const AccountDesktop=({username, avatar, about, posts, followers, friends})=>{
             <div className='info__name'>
                 <h3>{username}{followers.includes(isLogged.username) ? <img style={{margin:'0 0.2rem',display:'inline-block',verticalAlign:'middle',width: '25px',height:'25px'}} src={checkFollowed} rel='followed'/> : ''}</h3>
                 <div className='info__name__button'> 
-                    <button onClick={(e)=>handleFollow(e,isLogged._id,isLogged.username,username)}>{followers.includes(isLogged.username) ? 'Followed' : 'Follow'}</button>
+                    <button onClick={(e)=>handleFollow(e,isLogged._id,isLogged.username,username,avatar)}>{followers.includes(isLogged.username) ? 'Followed' : 'Follow'}</button>
                     <button>Message</button>
                 </div>
             </div>

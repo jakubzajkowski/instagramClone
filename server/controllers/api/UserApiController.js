@@ -1,11 +1,11 @@
 const Users= require('../../models/users');
 
 const usersApi=async(req,res)=>{
-    const json = await Users.find({}).select('_id about username avatar date friends posts followers notifications');
+    const json = await Users.find({}).select('_id about chats username avatar date friends posts followers notifications');
     res.json(json)
 }
 const usersIdApi=async(req,res)=>{
-    const json = await Users.findOne({_id: req.params.id}).select('_id about username avatar date friends posts followers notifications');
+    const json = await Users.findOne({_id: req.params.id}).select('_id chats about username avatar date friends posts followers notifications');
     res.json(json)
 }
 const usersPostIdApi=async(req,res)=>{
@@ -27,7 +27,11 @@ const usersPostsApi=async(req,res)=>{
     res.json(json)
 }
 const usersUsernameApi=async(req,res)=>{
-    const user = await Users.findOne({username: req.params.username}).select('_id about username avatar date friends posts followers notifications')
+    const user = await Users.findOne({username: req.params.username}).select('_id chats about full_name username avatar date friends posts followers notifications')
+    res.json(user)
+}
+const usersUsernameChatApi=async(req,res)=>{
+    const user = await Users.findOne({username: req.params.username}).where('chats.friend').equals(req.params.me).select('_id chats.$ about full_name username avatar date friends posts followers notifications')
     res.json(user)
 }
 const usersSearchApi=async(req,res)=>{
@@ -97,5 +101,5 @@ const usersForYouApi=async (req,res)=>{
 }
 
 module.exports={
-    usersApi,usersIdApi,usersPostIdApi,usersUsernameApi,usersPostsApi,usersSearchApi,usersSuggestApi,usersForYouApi
+    usersApi,usersIdApi,usersUsernameChatApi,usersPostIdApi,usersUsernameApi,usersPostsApi,usersSearchApi,usersSuggestApi,usersForYouApi
 }

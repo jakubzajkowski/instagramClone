@@ -9,6 +9,7 @@ import './index.scss'
 import Profile from './pages/profile/Profile';
 import Edit from './pages/profile/edit/Edit';
 import useIsLogged from './hooks/useIsLogged';
+import Chats from './pages/chats/Chats';
 
 const App = () => {
   const {isLogged,loading: loadingIsLogged,error: errorIsLogged}=useIsLogged()
@@ -18,6 +19,7 @@ const App = () => {
     <LoggedContext.Provider value={{isLogged,loadingIsLogged, mobile}}>
       <Routes> 
           <Route path="/" element={<Home/>} /> 
+          <Route path="/chats" element={<Chats />} /> 
           <Route path="/register" element={<Register/> } />
           <Route path="/profile" element={<Profile /> } />
           <Route path="/profile/edit" element={<Edit /> } />

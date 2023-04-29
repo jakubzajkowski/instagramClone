@@ -33,13 +33,14 @@ export const handleComment=(e,comment,id,username,avatar,postId)=>{
     });
   }
 }
-export const handleFollow=(e,id,username,friend)=>{
+export const handleFollow=(e,id,username,friend,avatar)=>{
   e.preventDefault()
   axios.post('/follow', {
       id: id,
       username: username,
       date: Date.now(),
       friend: friend,
+      avatar: avatar
     })
     .then(function (response) {
       console.log(response);

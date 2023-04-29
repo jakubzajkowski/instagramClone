@@ -16,7 +16,7 @@ const LikeController= require('../controllers/LikeController')
 const FollowController= require('../controllers/FollowController')
 const NotificationsController = require('../controllers/NotificationsController')
 
-const routers=['/','/login','/register','/account/*','/profile','/profile/*']
+const routers=['/','/login','/register','/account/*','/chats','/profile','/profile/*']
 
 router.get(routers, (req, res) => {
     res.sendFile(path.join(__dirname, "../dist/index.html"))

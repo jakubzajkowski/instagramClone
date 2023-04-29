@@ -4,7 +4,7 @@ import { handleFollow } from "../../components/Handle";
 const SuggestedFollows=({data,isLogged})=>{
     const [followBtn, setFollowBtn]=useState(false)
     const handleBtn=(e)=>{
-        handleFollow(e,isLogged._id,isLogged.username,data.username)
+        handleFollow(e,isLogged._id,isLogged.username,data.username,data.avatar)
         setFollowBtn(true)
     }
     return (<div className="friend">

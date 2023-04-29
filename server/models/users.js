@@ -33,6 +33,18 @@ const Users = mongoose.model('users', {
     friends: {
         type: [String],
     },
+    chats: [
+        {
+            friend: {type: String},
+            avatar: {type: String},
+            room_id:{type: String},
+            messages: [{
+                from : {type: String},
+                text: {type: String},
+                date: {type: Date, default: Date.now}
+            }],
+        },
+    ],
     gender: {
         type: String,
         default: 'people',
