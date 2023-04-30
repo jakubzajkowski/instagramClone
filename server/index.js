@@ -8,6 +8,7 @@ const port = process.env.PORT
 const router = require('./routes/routes')
 const api = require('./routes/api')
 const socket = require("socket.io");
+const session=require('express-session')
 const SocketController = require('./controllers/SocketController')
 
 
@@ -16,6 +17,16 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 app.use(cookieParser())
 app.use(cors())
+app.use(session({  
+  name: process.env.SESSION_NAME,
+  secret: process.env.SESSION_SECRET,  
+  resave: false,
+  saveUninitialized: false,
+  cookie: { 
+    secure: false, 
+    maxAge: 60000
+  } 
+}));
 app.use(express.static(path.join(__dirname, "./dist")));
 app.use(express.static(path.join(__dirname, "./public")));
 

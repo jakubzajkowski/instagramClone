@@ -12,11 +12,7 @@ const loginUser = async (req, res) => {
   else{
     const match = await bcrypt.compare(password, user.password);
       if (match){
-        const payload = user
-        const token = jwt.sign({payload},process.env.ACCESS_TOKEN,{expiresIn: '1h'})
-        res.cookie('token',token,{
-            httpOnly: true,
-        })
+        req.session.profile = user;
         res.json({error: ''})
       }
       else{

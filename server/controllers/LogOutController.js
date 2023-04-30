@@ -1,5 +1,6 @@
 const LogOutController =  (req, res) => {
-    res.clearCookie('token', {path:'/'});
+    res.clearCookie('user_ssid', {path:'/'});
+    req.session.destroy()
     res.status(200).json('User Logged out')
 };
 
