@@ -2,7 +2,6 @@ const Users = require('../models/users')
 
 const SocketController = (socket,io)=>{
     socket.on('send-message',async function({text ,username, id,to},room) {
-    console.log(room)
     if (room){
       socket.join(room);
       io.to(room).emit("message",{text:text,room:room,username:username, id:id});
@@ -12,7 +11,6 @@ const SocketController = (socket,io)=>{
     });
 
     socket.on('room-connect', function(room) {
-      console.log(room)
       if (room) socket.join(room);
     });
   }

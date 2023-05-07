@@ -6,6 +6,10 @@ import path from 'path'
 export default defineConfig({
   plugins: [react()],
   mode: "development",
+  test:{
+    globals: true,
+    environment: 'jsdom',
+  },
   build: {
     outDir: path.join(__dirname, "../../server/dist"),
     minify: false,
