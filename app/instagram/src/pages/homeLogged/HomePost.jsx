@@ -62,8 +62,8 @@ const HomePost=(props)=>{
       <p className='post__info__about'><span>{data.username} </span> {data.note}</p>
       <p style={{margin: '0.5rem 0'}} className="post__info__comments" onClick={()=>setHandleCommentView(!handleCommentView)}>View all the {useNumbers(data.comments?.length)} comments</p>
     </div>
-    <div style={{transition: "all .4s",height:handleCommentView ? '200px':'0px', visibility: handleCommentView ? "visible": "hidden",opacity: handleCommentView ? "1" : "0",}} className='post__comments'>
-      {data.comments?.map((x)=><Comment avatar={x.avatar} content={x.content} date={x.date} user={x.user} />)}
+    <div style={{transition: "all .4s",height:handleCommentView ? '200px':'0px', visibility: handleCommentView ? "visible": "hidden",opacity: handleCommentView ? 1 : 0}} className='post__comments'>
+      {data?.comments?.map(x=>x ? (<Comment avatar={x.avatar} content={x.content} date={x.date} user={x.user} />) : '')}
     </div>   
     <div className='post__add_comment'>
       <form>

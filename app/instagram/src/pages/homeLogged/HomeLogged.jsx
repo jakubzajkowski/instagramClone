@@ -1,4 +1,4 @@
-import { useState,useContext, useEffect } from 'react'
+import { useState,useContext, useEffect,useRef } from 'react'
 import './homeLogged.scss'
 import Nav from '../../components/Nav'
 import Loader from '../../components/Loader'
@@ -9,14 +9,18 @@ import HomeFriends from './HomeFriends'
 import SuggestedFollows from './SuggestedFollows'
 import axios from "axios";
 import CircularProgress from "@mui/material/CircularProgress"
+import { motion } from 'framer-motion'
 
 
 function HomeLogged() {
   const { isLogged,loadingIsLogged } = useContext(LoggedContext);
   const posts=useAlgorithm(isLogged._id)
   const [suggestions, setSuggestions]=useState(null)
+  const [width,setWidth]=useState(0)
+  const carousel=useRef()
   useEffect(()=>{
     axios.get(`/api/suggest/${isLogged._id}`).then(({data})=>setSuggestions(data)).catch(err=>console.log(err))
+    setWidth(carousel.current.scrollWidth-carousel.current.offsetWidth)
   },[])
 
   if (loadingIsLogged) return <Loader/>
@@ -24,9 +28,9 @@ function HomeLogged() {
       <Nav />
       <div className='main'>
         <div className='main__content'>
-          <div className='main__content__friends'>
+          <div className='main__content__friends' ref={carousel}>
           {
-            (isLogged.friends.length!=0) ? isLogged.friends?.map(x=><HomeFriends username={x}/>) : <div><h3 style={{textAlign:'center'}}>ADD FRIENDS!</h3></div>
+            (isLogged.friends.length!=0) ? <motion.div drag='x' dragConstraints={{right:0,left:-width}} className='main__content__friends__carousel'>{isLogged.friends?.map(x=><HomeFriends username={x}/>)}</motion.div> : <div><h3 style={{textAlign:'center'}}>ADD FRIENDS!</h3></div>
           }
           </div> 
           {

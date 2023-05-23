@@ -58,6 +58,9 @@
                 position: relative;
                 overflow-y: scroll;
                 height: 88%;
+                @media(max-width:750px) {
+                    height: 100%;
+                }
                 .friend{
                     width: 100%;
                     cursor: pointer;

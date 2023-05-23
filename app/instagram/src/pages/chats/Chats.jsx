@@ -18,7 +18,6 @@ function Chats() {
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
-    console.log(mobile)
   }
   console.log(mobile)
   useEffect(() => {
