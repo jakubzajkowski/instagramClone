@@ -7,16 +7,17 @@ import saveAs from 'file-saver'
 import { motion } from 'framer-motion'
 
 const ViewPost=(props)=>{
-    const { isLogged } = useContext(LoggedContext);
+    const { isLogged,mobile } = useContext(LoggedContext);
     const { data, setViewModalPost, modalViewPost }=props
     const downloadImage = () => {
         saveAs(`${import.meta.env.VITE_DOMAIN}${data.img}`, 'post.jpg')
     }
     return (
     <div className='modal__view_post'>
-        <svg  className='close_btn' onClick={()=>setViewModalPost(!modalViewPost)} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
+        {mobile.matches ? ' ' : <svg className='close_btn' onClick={()=>setViewModalPost(!modalViewPost)} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>}
         <div className='modal__view_post__container'>
-            <img src={`http://127.0.0.1:3000/${data.img}`} alt="" />
+        {mobile.matches ? <svg  className='close_btn' onClick={()=>setViewModalPost(!modalViewPost)} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg> : ''}
+        <img src={`http://127.0.0.1:3000/${data.img}`} alt="" />
            <div className='view_post__container__content'>
                 <div className='view_post__container__content__account'>
                     <div>

@@ -15,7 +15,7 @@ const useUsers=(username)=>{
           }).finally(()=>{
             setLoading(false)
           })
-        },2000)
+        },1000)
         return () => clearInterval(load);
         },[username])
 

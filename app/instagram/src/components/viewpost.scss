@@ -24,7 +24,7 @@
     z-index: 10000;
     top: 0;
     left:0;
-    bottom: -10%;
+    bottom: 0;
     display: flex;
     justify-content: center;
     padding: 6rem 0rem;
@@ -34,7 +34,7 @@
     flex-wrap: wrap;
     width: 99vw;
     @media(max-width: 750px) {
-        padding: 3rem 0rem;
+        padding:  0rem;
     }
     .close_btn{
         position: absolute;
@@ -49,7 +49,7 @@
         position: relative;
         padding: 0rem;
         width: 80%;
-        height: 75%;
+        height: 90%;
         display: flex;
         justify-content: space-between;
         @media(max-width: 750px) {
@@ -59,6 +59,14 @@
         }
         @media(min-width: 750px) and (max-width: 1250px) {
             width: 100%;
+        }
+        .close_btn{
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
         }
         img{
             width: 60%;
@@ -94,8 +102,8 @@
                     display: flex;
                     align-items: center;
                     img{
-                        width: 50px;
-                        height: 50px;
+                        width: 40px;
+                        height: 40px;
                         border-radius: 10rem;
                         float: left;
                         margin: 0 1rem;
@@ -122,12 +130,13 @@
                     padding: 0.5rem;
                     img{
                         float: left;
-                        width: 40px;
-                        height: 40px;
+                        width: 30px;
+                        height: 30px;
                         border-radius: 10rem;
                         margin: 0 1rem;
                     }
                     p{
+                        font-size: 0.9rem;
                         .user{
                             font-weight: bold;
                         }
@@ -161,16 +170,16 @@
                     align-items: center;
                     div{
                         .icon{
-                            width: 40px;
-                            height: 40px;
+                            width: 30px;
+                            height: 30px;
                             fill: rgb(184, 184, 184);
                             margin: 0 0.2rem;
                             cursor: pointer;
                         }
                     }
                     .icon{
-                        width: 40px;
-                        height: 40px;
+                        width: 30px;
+                        height: 30px;
                         fill: rgb(184, 184, 184);
                     }
                 }

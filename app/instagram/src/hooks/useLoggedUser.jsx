@@ -12,7 +12,7 @@ const useLoggedUser=()=>{
           }).catch((err)=>{
             setError(err)
           })
-        },2000)
+        },1000)
         return () => clearInterval(load);
         },[])
 

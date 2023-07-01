@@ -1,0 +1,45 @@
+.mobile-search-container{
+    position: fixed;
+    top: 7.5%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background-color: white;
+    text-align: center;
+    input{
+        border: none;
+        color: black;
+        background-color: rgb(240, 240, 240);
+        padding: 0.5rem;
+        font-size: 1rem;
+        margin: 0.5rem 0 1rem 0;
+        width: 90%;
+        border-radius: 0.5rem;
+    }
+    .mobile-search-container__results{
+        overflow: scroll;
+        background-color: rgb(255, 255, 255);
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        .result{
+            display: flex;
+            width: 100%;
+            padding: 0.5rem;
+            margin: 1rem 0 0 0;
+            img{
+                width: 30px;
+                height: 30px;
+                border-radius: 10rem;
+                margin: 0 0.2rem;
+            }
+            div{
+                p{
+                    font-size: 0.8rem;
+                }
+            }
+        }
+    }
+}
