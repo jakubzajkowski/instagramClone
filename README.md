@@ -1,92 +1,40 @@
-# Instagram Clone Project
+# InstaClone
 
-This app is modeled on instagram. It has a lot functions like:
-- create account
-- log in 
-- add avatar 
-- add posts
-- style a photo when adding post
-- download post picture
-- add friends
-- like and comments other friend's posts
-- DMs with friends
-## Created with
-I made frontend with [react](https://react.dev/) by [vite](https://vitejs.dev/) for style i used scss
-For update content in frontend i used http polling 
-and for messages in DMs websockets by [socket.io](https://socket.io/)
-I added react router and useContext for logged user info\
-Backend is on node [express](https://expressjs.com/) for database i used non-relational [mongodb](https://www.mongodb.com/) sessions are for login and multer for catching imgs from client.
-I tried to make Model–view–controller server
+## Description
+InstaClone is a feature-rich web application that emulates the core functionalities of the popular social media platform, Instagram. With InstaClone, users can create profiles, share photos, follow other users, and engage with a vibrant community. Whether you're looking to connect with friends, share your creative work, or explore captivating content, InstaClone provides a familiar and enjoyable experience.
 
-## Code Example
-```javascript
-require('dotenv').config()
-const bcrypt = require("bcrypt");
-const Users = require('../models/users')
+## Features
+- User Profiles: Create your own personalized profile, complete with a profile picture, bio, and links to your other social media accounts. Showcase your personality and connect with other users through your profile.
+- Photo Sharing: Upload and share your favorite moments through photos.
+- Follow and Be Followed: Connect with friends, family, and other users by following their profiles. Stay updated with their latest posts, like and comment on their content, and build a network of followers.
+- Explore Page: Find new users and content through the Explore page. Discover trending posts, popular hashtags, and recommended profiles based on your interests and activity.
+- Direct Messaging: Communicate privately with other users through direct messages. Share photos, videos, and text messages, create group conversations, and stay connected with your contacts.
+- Search Functionality: Easily find users, posts, and hashtags through the powerful search feature. Discover specific content or explore a particular topic of interest.
+- Responsive Design: Access InstaClone from any device, including desktops, laptops, tablets, and smartphones. The responsive design ensures an optimized experience across various screen sizes.
 
-const loginUser = async (req, res) => {
-  const {username, password }=req.body
-  const user = await Users.findOne({username: username})
-  if(!user){
-    res.json({error: 'Username is not existing'})
-  }
-  else{
-    const match = await bcrypt.compare(password, user.password);
-      if (match){
-        req.session.profile = user;
-        res.json({error: ''})
-      }
-      else{
-        res.json({error: 'Password is Wrong'})
-      }
-  }
-  };
-
-  module.exports=loginUser
-```
-```javascript
-const App = () => {
-  const {isLogged,loading: loadingIsLogged,error: errorIsLogged}=useIsLogged()
-  const mobile = window.matchMedia("(max-width: 750px)")
-
-  return (
-    <LoggedContext.Provider value={{isLogged,loadingIsLogged, mobile}}>
-      <Routes> 
-          <Route path="/" element={<Home/>} /> 
-          <Route path="/chats" element={<Chats />} /> 
-          <Route path="/register" element={<Register/> } />
-          <Route path="/profile" element={<Profile /> } />
-          <Route path="/profile/edit" element={<Edit /> } />
-          <Route path="/account/:user" element={<Account/>} />
-      </Routes> 
-    </LoggedContext.Provider>
-  )
- };
-```
-```javascript
-const SocketController = (socket,io)=>{
-    socket.on('send-message',async function({text ,username, id,to},room) {
-    if (room){
-      socket.join(room);
-      io.to(room).emit("message",{text:text,room:room,username:username, id:id});
-      await Users.updateOne({username:username, 'chats.friend': to},{$push: {"chats.$.messages": {from:username,text:text}}})
-      await Users.updateOne({username:to, 'chats.friend': username},{$push: {"chats.$.messages": {from:username,text:text}}})
-    }
-    });
-
-    socket.on('room-connect', function(room) {
-      if (room) socket.join(room);
-    });
-  }
-```
-
-## Git
-
-All commmits are in this convention
-- docs: correct spelling of CHANGELOG
-- feat: added new page
-- fix: fixed bugs
-
+## Technologies Used
+### Front-end:
+- React: A JavaScript library for building user interfaces.
+- CSS: Scss styled-components.
+- React Router: For handling routing within the application.
+- Axios: A promise-based HTTP client for making API requests.
+- Context: Context api react to store user.
+- Http-polling: Http polling to update data.
+- Websockets: To messages between users.
+### Back-end:
+- Node.js: A JavaScript runtime for server-side development.
+- Express.js: A minimalistic web framework for Node.js.
+- MongoDB: A NoSQL database for storing data.
+- Mongoose: An ODM (Object Data Modeling) library for MongoDB.
+- Session: For user authentication and authorization.
+- Bcrypt: A library for hashing passwords.
+- Multer: For catch avatars and photos.
+### Deployment:
+- Render: A cloud platform for hosting and deploying web applications.
+- MongoDB Atlas: A cloud-based MongoDB service.
+## Installation
+To access the Instagram Website Clone, simply visit our website at [] using any modern web browser. No additional installation or downloads are required.
 ## License
+This project is licensed under the MIT License. Feel free to use, modify, and distribute the code as permitted by the license.
 
 [MIT](https://choosealicense.com/licenses/mit/)
