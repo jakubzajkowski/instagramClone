@@ -33,7 +33,7 @@ InstaClone is a feature-rich web application that emulates the core functionalit
 - Render: A cloud platform for hosting and deploying web applications.
 - MongoDB Atlas: A cloud-based MongoDB service.
 ## Installation
-To access the Instagram Website Clone, simply visit our website at [] using any modern web browser. No additional installation or downloads are required.
+To access the Instagram Website Clone, simply visit our website at https://instaclone-n0oa.onrender.com/ using any modern web browser. No additional installation or downloads are required.
 ## License
 This project is licensed under the MIT License. Feel free to use, modify, and distribute the code as permitted by the license.
 
