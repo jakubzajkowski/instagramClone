@@ -13,7 +13,7 @@ const HomeFriends=({username})=>{
     return(
         <div className="friend__container">
             <motion.div className="friend__photo" transition={{duration: 0.4}} whileHover={{rotate: 30}} whileTap={{scale: 1.1}}>
-                <Link to={`account/${username}`} ><img src={`${import.meta.env.VITE_DOMAIN}${userAvatar}`} alt="avatar" /></Link>
+                <Link to={`account/${username}`} ><img src={`${import.meta.env.VITE_DOMAIN}${userAvatar}`} alt="avatar" loading="lazy" /></Link>
             </motion.div>
             <p>{username}</p>
         </div>

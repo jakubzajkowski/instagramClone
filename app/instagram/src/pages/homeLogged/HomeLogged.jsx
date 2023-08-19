@@ -44,7 +44,7 @@ function HomeLogged() {
         </div>
         <div className='main__sidebar'>
           <div className='main__sidebar__account'>
-            <img src={`${import.meta.env.VITE_DOMAIN}${isLogged.avatar}`} alt="avatar" />
+            <img src={`${import.meta.env.VITE_DOMAIN}${isLogged.avatar}`} alt="avatar" loading="lazy"/>
             <p>{isLogged.username}</p>
           </div>
           <div className='main__sidebar__suggestions'>
