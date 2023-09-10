@@ -29,6 +29,8 @@ InstaClone is a feature-rich web application that emulates the core functionalit
 - Session: For user authentication and authorization.
 - Bcrypt: A library for hashing passwords.
 - Multer: For catch avatars and photos.
+## Installation
+To access the Insta Website Clone, simply visit our website at https://instaclone-6xg9.onrender.com/ using any modern web browser. No additional installation or downloads are required.
 ## License
 This project is licensed under the MIT License. Feel free to use, modify, and distribute the code as permitted by the license.
 
