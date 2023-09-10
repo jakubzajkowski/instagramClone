@@ -1,10 +1,9 @@
 import { useState, useContext} from 'react'
 import Loader from '../../components/Loader'
 import './home.scss'
-import { Link, redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from 'axios'
 import phoneImg from '../../img/PngItem_1091605.png'
-import instagramImg from '../../img/toppng.com-instagram-word-logo-1887x536.png'
 import { LoggedContext } from '../../LoggedContext';
 import HomeLogged from '../homeLogged/HomeLogged';
 
@@ -37,14 +36,16 @@ function Home() {
           <img className='home__form__img' src={phoneImg} />
           <form>
             <div className='home__form__login'>
-              <img style={{width:'50%',margin: 'auto'}} src={instagramImg}></img>
-              <input type="text" placeholder='Phone number, username or email' onChange={(e)=>setUsername(e.target.value)}/>
+              <h2 style={{textAlign:'center',margin: '0.5rem 0'}}>Welcome to InstaClone</h2>
+              <input type="text" placeholder='Username' onChange={(e)=>setUsername(e.target.value)}/>
               <input type="password" placeholder='Password' onChange={(e)=>setPassword(e.target.value)}/>
-              <p style={{textAlign:'center',margin: '0.5rem 0',fontSize:'0.7rem',color:'red',cursor: 'pointer'}}>{error}*</p>
+              <p style={{textAlign:'center',margin: '0.5rem 0',fontSize:'0.7rem',color:'red',cursor: 'pointer'}}>{error && `${error}*`}</p>
+              <p style={{textAlign:'center',margin: '0.5rem 0',fontSize:'0.7rem',cursor: 'pointer'}}>Demo account:</p>
+              <p style={{textAlign:'center',margin: '0.5rem 0',fontSize:'0.7rem',cursor: 'pointer'}}>login: instagram, password: jd12345</p>
               <input type="submit" value='Log in' onClick={handleSubmit}/>
               <p style={{textAlign:'center',margin: '0.5rem 0',fontSize:'0.9rem'}}>OR</p>
               <p style={{textAlign:'center',margin: '0.5rem 0',fontSize:'0.9rem',color: 'rgb(0, 0, 89)',cursor: 'pointer'}}>Log in with Facebook</p>
-              <p style={{textAlign:'center',fontSize:'0.8rem',margin: '0.5rem 0',cursor: 'pointer'}}>forgot password?</p>
+              <p style={{textAlign:'center',fontSize:'0.8rem',margin: '0.5rem 0'}}>The website is created for educational purposes</p>
             </div>
             <div className='home__form__register'>
               <p>Don't have an account? <span style={{color:'blue',cursor: 'pointer'}}><Link to='/register' style={{textDecoration:'none',color: 'blue'}}>Sign up</Link></span></p>

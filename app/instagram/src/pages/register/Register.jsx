@@ -1,9 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios'
-import Loader from '../../components/Loader'
-import instagramImg from '../../img/toppng.com-instagram-word-logo-1887x536.png'
 import './register.scss'
-import { redirect } from 'react-router-dom'
 
 function Register() {
   const [username,setUsername]=useState('')
@@ -33,7 +30,7 @@ function Register() {
         <div className='home__form'>
           <form>
             <div className='home__form__login'>
-              <img style={{width:'50%',margin: 'auto'}} src={instagramImg}></img>
+              <h2 style={{textAlign:'center',margin: '0.5rem 0'}}>Register to InstaClone</h2>
               <p style={{color:'grey',margin: '1rem 0',textAlign:'center'}}>Sign up to see photos and videos from your friends.</p>
               <button><img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/facebook-new.png"/>Log in with Facebook</button>
               <p style={{textAlign:'center',margin: '0.5rem 0',fontSize:'0.9rem'}}>OR</p>

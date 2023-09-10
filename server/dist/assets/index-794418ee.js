@@ -17047,13 +17047,13 @@ axios.HttpStatusCode = HttpStatusCode$1;
 axios.default = axios;
 const axios$1 = axios;
 const phoneImg = "/assets/PngItem_1091605-818af3fa.png";
-const instagramImg = "/assets/toppng.com-instagram-word-logo-1887x536-9e9ebe00.png";
 const LoggedContext = React.createContext("");
 const homeLogged = "";
 const nav = "";
+const LogoImg = "/assets/toppng.com-instagram-word-logo-1887x536-9e9ebe00.png";
 const Search = ({ data }) => {
   return /* @__PURE__ */ jsx(Link, { style: { textDecoration: "none", color: "black" }, to: `/account/${data.username}`, children: /* @__PURE__ */ jsxs("div", { className: "result", children: [
-    /* @__PURE__ */ jsx("img", { src: `${"http://127.0.0.1:3000/"}${data.avatar}`, alt: "avatar" }),
+    /* @__PURE__ */ jsx("img", { src: `${"https://instaclone-n0oa.onrender.com/"}${data.avatar}`, alt: "avatar" }),
     /* @__PURE__ */ jsxs("div", { children: [
       /* @__PURE__ */ jsx("h4", { children: data.username }),
       /* @__PURE__ */ jsx("p", { children: data.full_name })
@@ -17117,7 +17117,7 @@ function Nav(props) {
     }
   });
   return isLogged ? /* @__PURE__ */ jsx("div", { className: "header", children: /* @__PURE__ */ jsxs("nav", { children: [
-    /* @__PURE__ */ jsx("img", { src: instagramImg, alt: "logo" }),
+    /* @__PURE__ */ jsx("img", { src: LogoImg, alt: "logo" }),
     /* @__PURE__ */ jsx("input", { className: "input-desktop", type: "text", ref: refSearch, placeholder: "Search", onChange: (e2) => handleInput(e2.target.value), value: searchValue }),
     searchValue ? /* @__PURE__ */ jsx("div", { className: "results", children: (results2 == null ? void 0 : results2.length) != 0 ? results2 == null ? void 0 : results2.map((x2) => /* @__PURE__ */ jsx(Search, { data: x2 })) : /* @__PURE__ */ jsx("h4", { style: { textAlign: "center" }, children: "No Results!" }) }) : " ",
     mobile.matches ? mobileSearch ? /* @__PURE__ */ jsx(MobileSearch, {}) : "" : "",
@@ -17129,11 +17129,11 @@ function Nav(props) {
         /* @__PURE__ */ jsx("svg", { className: "icon", xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 512 512", children: /* @__PURE__ */ jsx("path", { d: "M16.1 260.2c-22.6 12.9-20.5 47.3 3.6 57.3L160 376V479.3c0 18.1 14.6 32.7 32.7 32.7c9.7 0 18.9-4.3 25.1-11.8l62-74.3 123.9 51.6c18.9 7.9 40.8-4.5 43.9-24.7l64-416c1.9-12.1-3.4-24.3-13.5-31.2s-23.3-7.5-34-1.4l-448 256zm52.1 25.5L409.7 90.6 190.1 336l1.2 1L68.2 285.7zM403.3 425.4L236.7 355.9 450.8 116.6 403.3 425.4z" }) })
       ] }),
       /* @__PURE__ */ jsx(Link, { to: "/profile", children: /* @__PURE__ */ jsx("svg", { onClick: () => setModalPost(!modalPost), className: "icon", xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 448 512", children: /* @__PURE__ */ jsx("path", { d: "M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" }) }) }),
-      /* @__PURE__ */ jsx(Link, { to: "/profile", children: /* @__PURE__ */ jsx("img", { className: "icon__account", src: `${"http://127.0.0.1:3000/"}${isLogged.avatar}` }) }),
+      /* @__PURE__ */ jsx(Link, { to: "/profile", children: /* @__PURE__ */ jsx("img", { className: "icon__account", src: `${"https://instaclone-n0oa.onrender.com/"}${isLogged.avatar}` }) }),
       /* @__PURE__ */ jsx(Link, { to: "/", children: /* @__PURE__ */ jsx("svg", { onClick: handleLogOut, className: "icon", xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 512 512", children: /* @__PURE__ */ jsx("path", { d: "M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z" }) }) })
     ] })
   ] }) }) : /* @__PURE__ */ jsx("div", { className: "header", children: /* @__PURE__ */ jsxs("nav", { children: [
-    /* @__PURE__ */ jsx("img", { src: instagramImg, alt: "logo" }),
+    /* @__PURE__ */ jsx("img", { src: LogoImg, alt: "logo" }),
     results2 == null ? void 0 : results2.map((x2) => /* @__PURE__ */ jsx(Search, { data: x2 })),
     /* @__PURE__ */ jsxs("div", { className: "accout_options", children: [
       /* @__PURE__ */ jsx("button", { className: "log_in", children: /* @__PURE__ */ jsx(Link, { to: "login", style: { color: "white", textDecoration: "none" }, children: "Log In" }) }),
@@ -23827,7 +23827,7 @@ const handlePost = async (e2, editor, note, id2, setModalPost, modalPost, photo)
 };
 const Comment = ({ avatar, content, date, user }) => {
   return /* @__PURE__ */ jsxs("div", { className: "comment", children: [
-    /* @__PURE__ */ jsx("img", { src: `${"http://127.0.0.1:3000/"}${avatar}`, alt: "comment avatar" }),
+    /* @__PURE__ */ jsx("img", { src: `${"https://instaclone-n0oa.onrender.com/"}${avatar}`, alt: "comment avatar" }),
     /* @__PURE__ */ jsxs("div", { children: [
       /* @__PURE__ */ jsxs("p", { children: [
         /* @__PURE__ */ jsx(Link, { to: `/account/${user}`, style: { textDecoration: "none", color: "black" }, children: /* @__PURE__ */ jsxs("span", { className: "user", children: [
@@ -23959,18 +23959,18 @@ const HomePost = (props) => {
     handleLike(e2, data.user_id, isLogged.username, data._id);
   };
   const downloadImage = () => {
-    FileSaver_minExports.saveAs(`${"http://127.0.0.1:3000/"}${data.img}`, "post.jpg");
+    FileSaver_minExports.saveAs(`${"https://instaclone-n0oa.onrender.com/"}${data.img}`, "post.jpg");
   };
   return /* @__PURE__ */ jsxs("div", { className: "main__content__post", children: [
     /* @__PURE__ */ jsxs("div", { className: "post__header", children: [
       /* @__PURE__ */ jsxs("div", { children: [
-        /* @__PURE__ */ jsx("img", { src: `${"http://127.0.0.1:3000/"}${data.avatar}`, alt: "" }),
+        /* @__PURE__ */ jsx("img", { src: `${"https://instaclone-n0oa.onrender.com/"}${data.avatar}`, alt: "", loading: "lazy" }),
         /* @__PURE__ */ jsx(Link, { style: { textDecoration: "none", color: "black" }, to: `/account/${data.username}`, children: /* @__PURE__ */ jsx("h4", { children: data.username }) })
       ] }),
       /* @__PURE__ */ jsx("svg", { style: { width: "35px", height: "35px", cursor: "pointer" }, xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 448 512", children: /* @__PURE__ */ jsx("path", { d: "M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z" }) })
     ] }),
     /* @__PURE__ */ jsxs("div", { className: "post__photo", children: [
-      /* @__PURE__ */ jsx("img", { src: `${"http://127.0.0.1:3000/"}${data.img}`, alt: "post" }),
+      /* @__PURE__ */ jsx("img", { src: `${"https://instaclone-n0oa.onrender.com/"}${data.img}`, alt: "post", loading: "lazy" }),
       /* @__PURE__ */ jsx(motion.div, { onDoubleClick: (e2) => handleDoubleClick(e2), initial: "hidden", animate: liked ? "visible" : "hidden", transition: { duration: 0.8, bounce: 0.25 }, variants, className: "post__photo--animation", children: /* @__PURE__ */ jsx(motion.svg, { initial: "hidden", animate: liked ? "visible" : "hidden", transition: { duration: 0.7, bounce: 0.25 }, variants: variantsHeart, className: "icon", xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 512 512", children: /* @__PURE__ */ jsx("path", { d: "M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" }) }) })
     ] }),
     /* @__PURE__ */ jsxs("div", { className: "post__options", children: [
@@ -24040,7 +24040,7 @@ const HomeFriends = ({ username }) => {
     });
   }, []);
   return /* @__PURE__ */ jsxs("div", { className: "friend__container", children: [
-    /* @__PURE__ */ jsx(motion.div, { className: "friend__photo", transition: { duration: 0.4 }, whileHover: { rotate: 30 }, whileTap: { scale: 1.1 }, children: /* @__PURE__ */ jsx(Link, { to: `account/${username}`, children: /* @__PURE__ */ jsx("img", { src: `${"http://127.0.0.1:3000/"}${userAvatar}`, alt: "avatar" }) }) }),
+    /* @__PURE__ */ jsx(motion.div, { className: "friend__photo", transition: { duration: 0.4 }, whileHover: { rotate: 30 }, whileTap: { scale: 1.1 }, children: /* @__PURE__ */ jsx(Link, { to: `account/${username}`, children: /* @__PURE__ */ jsx("img", { src: `${"https://instaclone-n0oa.onrender.com/"}${userAvatar}`, alt: "avatar", loading: "lazy" }) }) }),
     /* @__PURE__ */ jsx("p", { children: username })
   ] });
 };
@@ -24052,7 +24052,7 @@ const SuggestedFollows = ({ data, isLogged }) => {
   };
   return /* @__PURE__ */ jsxs("div", { className: "friend", children: [
     /* @__PURE__ */ jsxs("div", { children: [
-      /* @__PURE__ */ jsx("img", { src: `${"http://127.0.0.1:3000/"}${data.avatar}`, alt: "avatar" }),
+      /* @__PURE__ */ jsx("img", { src: `${"https://instaclone-n0oa.onrender.com/"}${data.avatar}`, alt: "avatar" }),
       /* @__PURE__ */ jsxs("div", { children: [
         /* @__PURE__ */ jsx("h4", { children: data.username }),
         /* @__PURE__ */ jsx("p", { children: data.full_name })
@@ -28758,7 +28758,7 @@ function HomeLogged() {
         ] }),
         /* @__PURE__ */ jsxs("div", { className: "main__sidebar", children: [
           /* @__PURE__ */ jsxs("div", { className: "main__sidebar__account", children: [
-            /* @__PURE__ */ jsx("img", { src: `${"http://127.0.0.1:3000/"}${isLogged.avatar}`, alt: "avatar" }),
+            /* @__PURE__ */ jsx("img", { src: `${"https://instaclone-n0oa.onrender.com/"}${isLogged.avatar}`, alt: "avatar", loading: "lazy" }),
             /* @__PURE__ */ jsx("p", { children: isLogged.username })
           ] }),
           /* @__PURE__ */ jsxs("div", { className: "main__sidebar__suggestions", children: [
@@ -28800,17 +28800,16 @@ function Home() {
         /* @__PURE__ */ jsx("img", { className: "home__form__img", src: phoneImg }),
         /* @__PURE__ */ jsxs("form", { children: [
           /* @__PURE__ */ jsxs("div", { className: "home__form__login", children: [
-            /* @__PURE__ */ jsx("img", { style: { width: "50%", margin: "auto" }, src: instagramImg }),
-            /* @__PURE__ */ jsx("input", { type: "text", placeholder: "Phone number, username or email", onChange: (e2) => setUsername(e2.target.value) }),
+            /* @__PURE__ */ jsx("h2", { style: { textAlign: "center", margin: "0.5rem 0" }, children: "Welcome to InstaClone" }),
+            /* @__PURE__ */ jsx("input", { type: "text", placeholder: "Username", onChange: (e2) => setUsername(e2.target.value) }),
             /* @__PURE__ */ jsx("input", { type: "password", placeholder: "Password", onChange: (e2) => setPassword(e2.target.value) }),
-            /* @__PURE__ */ jsxs("p", { style: { textAlign: "center", margin: "0.5rem 0", fontSize: "0.7rem", color: "red", cursor: "pointer" }, children: [
-              error,
-              "*"
-            ] }),
+            /* @__PURE__ */ jsx("p", { style: { textAlign: "center", margin: "0.5rem 0", fontSize: "0.7rem", color: "red", cursor: "pointer" }, children: error && `${error}*` }),
+            /* @__PURE__ */ jsx("p", { style: { textAlign: "center", margin: "0.5rem 0", fontSize: "0.7rem", cursor: "pointer" }, children: "Demo account:" }),
+            /* @__PURE__ */ jsx("p", { style: { textAlign: "center", margin: "0.5rem 0", fontSize: "0.7rem", cursor: "pointer" }, children: "login: instagram, password: jd12345" }),
             /* @__PURE__ */ jsx("input", { type: "submit", value: "Log in", onClick: handleSubmit }),
             /* @__PURE__ */ jsx("p", { style: { textAlign: "center", margin: "0.5rem 0", fontSize: "0.9rem" }, children: "OR" }),
             /* @__PURE__ */ jsx("p", { style: { textAlign: "center", margin: "0.5rem 0", fontSize: "0.9rem", color: "rgb(0, 0, 89)", cursor: "pointer" }, children: "Log in with Facebook" }),
-            /* @__PURE__ */ jsx("p", { style: { textAlign: "center", fontSize: "0.8rem", margin: "0.5rem 0", cursor: "pointer" }, children: "forgot password?" })
+            /* @__PURE__ */ jsx("p", { style: { textAlign: "center", fontSize: "0.8rem", margin: "0.5rem 0" }, children: "The website is created for educational purposes" })
           ] }),
           /* @__PURE__ */ jsx("div", { className: "home__form__register", children: /* @__PURE__ */ jsxs("p", { children: [
             "Don't have an account? ",
@@ -28865,7 +28864,7 @@ function Register() {
   return /* @__PURE__ */ jsxs("div", { className: "register", children: [
     /* @__PURE__ */ jsx("div", { className: "home__form", children: /* @__PURE__ */ jsxs("form", { children: [
       /* @__PURE__ */ jsxs("div", { className: "home__form__login", children: [
-        /* @__PURE__ */ jsx("img", { style: { width: "50%", margin: "auto" }, src: instagramImg }),
+        /* @__PURE__ */ jsx("h2", { style: { textAlign: "center", margin: "0.5rem 0" }, children: "Register to InstaClone" }),
         /* @__PURE__ */ jsx("p", { style: { color: "grey", margin: "1rem 0", textAlign: "center" }, children: "Sign up to see photos and videos from your friends." }),
         /* @__PURE__ */ jsxs("button", { children: [
           /* @__PURE__ */ jsx("img", { src: "https://img.icons8.com/ios-glyphs/30/FFFFFF/facebook-new.png" }),
@@ -28928,17 +28927,17 @@ const ViewPostAccount = (props) => {
     return () => clearInterval(post2);
   }, [data]);
   const downloadImage = () => {
-    saveAs(`${"http://127.0.0.1:3000/"}${data.img}`, "post.jpg");
+    saveAs(`${"https://instaclone-n0oa.onrender.com/"}${data.img}`, "post.jpg");
   };
   return /* @__PURE__ */ jsxs("div", { className: "modal__view_account_post", children: [
     mobile.matches ? " " : /* @__PURE__ */ jsx("svg", { className: "close_btn", onClick: () => setViewModalPost(!modalViewPost), xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 384 512", children: /* @__PURE__ */ jsx("path", { d: "M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" }) }),
     /* @__PURE__ */ jsxs("div", { className: "modal__view_post__container", children: [
       mobile.matches ? /* @__PURE__ */ jsx("svg", { className: "close_btn", onClick: () => setViewModalPost(!modalViewPost), xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 384 512", children: /* @__PURE__ */ jsx("path", { d: "M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" }) }) : "",
-      /* @__PURE__ */ jsx("img", { src: `${"http://127.0.0.1:3000/"}${data.img}`, alt: "" }),
+      /* @__PURE__ */ jsx("img", { src: `${"https://instaclone-n0oa.onrender.com/"}${data.img}`, alt: "" }),
       /* @__PURE__ */ jsxs("div", { className: "view_post__container__content", children: [
         /* @__PURE__ */ jsxs("div", { className: "view_post__container__content__account", children: [
           /* @__PURE__ */ jsxs("div", { children: [
-            /* @__PURE__ */ jsx("img", { src: `${"http://127.0.0.1:3000/"}${avatar}`, alt: "" }),
+            /* @__PURE__ */ jsx("img", { src: `${"https://instaclone-n0oa.onrender.com/"}${avatar}`, alt: "" }),
             /* @__PURE__ */ jsx("h3", { children: username })
           ] }),
           /* @__PURE__ */ jsx("svg", { style: { width: "40px", height: "40px", cursor: "pointer" }, xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 448 512", children: /* @__PURE__ */ jsx("path", { d: "M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z" }) })
@@ -28991,7 +28990,7 @@ const AccountMobile = ({ username, avatar, about, posts, followers, friends }) =
   return /* @__PURE__ */ jsx("div", { className: "main__profile", children: /* @__PURE__ */ jsxs("div", { className: "main__profile__info", children: [
     /* @__PURE__ */ jsx("h3", { children: /* @__PURE__ */ jsx("h3", { children: username }) }),
     /* @__PURE__ */ jsxs("div", { className: "info__name", children: [
-      /* @__PURE__ */ jsx("div", { className: "main__profile__avatar", children: /* @__PURE__ */ jsx("img", { src: `${"http://127.0.0.1:3000/"}${avatar}`, alt: "" }) }),
+      /* @__PURE__ */ jsx("div", { className: "main__profile__avatar", children: /* @__PURE__ */ jsx("img", { src: `${"https://instaclone-n0oa.onrender.com/"}${avatar}`, alt: "", loading: "lazy" }) }),
       /* @__PURE__ */ jsxs("div", { className: "info__name__button", children: [
         /* @__PURE__ */ jsx("button", { onClick: (e2) => handleFollow(e2, isLogged._id, isLogged.username, username), children: followers.includes(isLogged.username) ? "Followed" : "Follow" }),
         /* @__PURE__ */ jsx("button", { children: "Message" })
@@ -29021,7 +29020,7 @@ const checkFollowed = "/assets/check-70f44252.png";
 const AccountDesktop = ({ username, avatar, about, posts, followers, friends }) => {
   const { isLogged } = reactExports.useContext(LoggedContext);
   return /* @__PURE__ */ jsxs("div", { className: "main__profile", children: [
-    /* @__PURE__ */ jsx("div", { className: "main__profile__avatar", children: /* @__PURE__ */ jsx("img", { src: `${"http://127.0.0.1:3000/"}${avatar}`, alt: "" }) }),
+    /* @__PURE__ */ jsx("div", { className: "main__profile__avatar", children: /* @__PURE__ */ jsx("img", { src: `${"https://instaclone-n0oa.onrender.com/"}${avatar}`, alt: "" }) }),
     /* @__PURE__ */ jsxs("div", { className: "main__profile__info", children: [
       /* @__PURE__ */ jsxs("div", { className: "info__name", children: [
         /* @__PURE__ */ jsxs("h3", { children: [
@@ -29074,7 +29073,7 @@ function Account() {
         mobile.matches ? /* @__PURE__ */ jsx(AccountMobile, { username: users.username, avatar: users.avatar, about: users.about, posts: users.posts, followers: users.followers, friends: users.friends }) : /* @__PURE__ */ jsx(AccountDesktop, { username: users.username, avatar: users.avatar, about: users.about, posts: users.posts, followers: users.followers, friends: users.friends }),
         /* @__PURE__ */ jsx("hr", {}),
         /* @__PURE__ */ jsx("div", { className: "main__posts", children: users.posts.map((x2) => /* @__PURE__ */ jsxs("div", { className: "post", onClick: () => handelViewPostModal(x2), children: [
-          /* @__PURE__ */ jsx("img", { src: `${"http://127.0.0.1:3000/"}${x2.img}`, alt: "" }),
+          /* @__PURE__ */ jsx("img", { src: `${"https://instaclone-n0oa.onrender.com/"}${x2.img}`, alt: "", loading: "lazy" }),
           mobile.matches ? "" : /* @__PURE__ */ jsxs(motion.div, { className: "post_options", initial: { opacity: 0 }, whileHover: { opacity: 0.75 }, transition: { duration: 0.5 }, children: [
             /* @__PURE__ */ jsx("svg", { className: "post_options_icon", xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 512 512", children: /* @__PURE__ */ jsx("path", { d: "M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" }) }),
             /* @__PURE__ */ jsx("p", { children: useNumbers(x2.likes.length) }),
@@ -30035,17 +30034,17 @@ const ViewPost = (props) => {
   const { isLogged, mobile } = reactExports.useContext(LoggedContext);
   const { data, setViewModalPost, modalViewPost } = props;
   const downloadImage = () => {
-    saveAs(`${"http://127.0.0.1:3000/"}${data.img}`, "post.jpg");
+    saveAs(`${"https://instaclone-n0oa.onrender.com/"}${data.img}`, "post.jpg");
   };
   return /* @__PURE__ */ jsxs("div", { className: "modal__view_post", children: [
     mobile.matches ? " " : /* @__PURE__ */ jsx("svg", { className: "close_btn", onClick: () => setViewModalPost(!modalViewPost), xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 384 512", children: /* @__PURE__ */ jsx("path", { d: "M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" }) }),
     /* @__PURE__ */ jsxs("div", { className: "modal__view_post__container", children: [
       mobile.matches ? /* @__PURE__ */ jsx("svg", { className: "close_btn", onClick: () => setViewModalPost(!modalViewPost), xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 384 512", children: /* @__PURE__ */ jsx("path", { d: "M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" }) }) : "",
-      /* @__PURE__ */ jsx("img", { src: `http://127.0.0.1:3000/${data.img}`, alt: "" }),
+      /* @__PURE__ */ jsx("img", { src: `${"https://instaclone-n0oa.onrender.com/"}${data.img}`, alt: "post" }),
       /* @__PURE__ */ jsxs("div", { className: "view_post__container__content", children: [
         /* @__PURE__ */ jsxs("div", { className: "view_post__container__content__account", children: [
           /* @__PURE__ */ jsxs("div", { children: [
-            /* @__PURE__ */ jsx("img", { src: `${"http://127.0.0.1:3000/"}${isLogged.avatar}`, alt: "" }),
+            /* @__PURE__ */ jsx("img", { src: `${"https://instaclone-n0oa.onrender.com/"}${isLogged.avatar}`, alt: "" }),
             /* @__PURE__ */ jsx("h3", { children: isLogged.username })
           ] }),
           /* @__PURE__ */ jsx("svg", { style: { width: "40px", height: "40px", cursor: "pointer" }, xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 448 512", children: /* @__PURE__ */ jsx("path", { d: "M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z" }) })
@@ -30073,7 +30072,7 @@ const ViewPost = (props) => {
 };
 const MainPosts = ({ x: x2, mobile, handelViewPostModal }) => {
   return /* @__PURE__ */ jsxs("div", { className: "post", onClick: () => handelViewPostModal(x2), children: [
-    /* @__PURE__ */ jsx("img", { src: `${"http://127.0.0.1:3000/"}${x2.img}`, alt: "" }),
+    /* @__PURE__ */ jsx("img", { src: `${"https://instaclone-n0oa.onrender.com/"}${x2.img}`, alt: "" }),
     mobile.matches ? "" : /* @__PURE__ */ jsxs(motion.div, { className: "post_options", initial: { opacity: 0 }, whileHover: { opacity: 0.75 }, transition: { duration: 0.5 }, children: [
       /* @__PURE__ */ jsx("svg", { className: "post_options_icon", xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 512 512", children: /* @__PURE__ */ jsx("path", { d: "M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" }) }),
       /* @__PURE__ */ jsx("p", { children: useNumbers(x2.likes.length) }),
@@ -30086,7 +30085,7 @@ const ProfileMobile = ({ data: { username, avatar, about, posts, followers, frie
   return /* @__PURE__ */ jsx("div", { className: "main__profile", children: /* @__PURE__ */ jsxs("div", { className: "main__profile__info", children: [
     /* @__PURE__ */ jsx("h3", { children: username }),
     /* @__PURE__ */ jsxs("div", { className: "info__name", children: [
-      /* @__PURE__ */ jsx("div", { className: "main__profile__avatar", children: /* @__PURE__ */ jsx("img", { src: `${"http://127.0.0.1:3000/"}${avatar}`, alt: "" }) }),
+      /* @__PURE__ */ jsx("div", { className: "main__profile__avatar", children: /* @__PURE__ */ jsx("img", { src: `${"https://instaclone-n0oa.onrender.com/"}${avatar}`, alt: "" }) }),
       /* @__PURE__ */ jsxs("div", { className: "info__name__button", children: [
         /* @__PURE__ */ jsx("button", { children: "Follow" }),
         /* @__PURE__ */ jsx("button", { children: "Message" }),
@@ -30115,7 +30114,7 @@ const ProfileMobile = ({ data: { username, avatar, about, posts, followers, frie
 };
 const ProfileDesktop = ({ data: { username, avatar, about, posts, followers, friends } }) => {
   return /* @__PURE__ */ jsxs("div", { className: "main__profile", children: [
-    /* @__PURE__ */ jsx("div", { className: "main__profile__avatar", children: /* @__PURE__ */ jsx("img", { src: `${"http://127.0.0.1:3000/"}${avatar}`, alt: "" }) }),
+    /* @__PURE__ */ jsx("div", { className: "main__profile__avatar", children: /* @__PURE__ */ jsx("img", { src: `${"https://instaclone-n0oa.onrender.com/"}${avatar}`, alt: "" }) }),
     /* @__PURE__ */ jsxs("div", { className: "main__profile__info", children: [
       /* @__PURE__ */ jsxs("div", { className: "info__name", children: [
         /* @__PURE__ */ jsx("h3", { children: username }),
@@ -31573,7 +31572,7 @@ const Edit = () => {
       /* @__PURE__ */ jsx("div", { className: "profile__form", children: /* @__PURE__ */ jsxs("form", { onSubmit: handleSubmit(onSubmit), children: [
         /* @__PURE__ */ jsxs("div", { className: "profile__form__edit", children: [
           /* @__PURE__ */ jsxs("div", { className: "profile__form__edit__photo", children: [
-            /* @__PURE__ */ jsx("img", { style: { width: "50px", height: "50px", float: "left" }, src: photo ? displayPhoto : `${"http://127.0.0.1:3000/"}${isLogged.avatar}`, alt: "avatar" }),
+            /* @__PURE__ */ jsx("img", { style: { width: "50px", height: "50px", float: "left" }, src: photo ? displayPhoto : `${"https://instaclone-n0oa.onrender.com/"}${isLogged.avatar}`, alt: "avatar" }),
             /* @__PURE__ */ jsx("label", { style: { margin: "0 1rem" }, for: "avatar", children: photo ? "Your Photo" : "Edit Image" }),
             /* @__PURE__ */ jsx("input", { id: "avatar", style: { color: "blue", margin: "0 0 0 2rem", cursor: "pointer", visibility: "hidden" }, type: "file", onChange: handleFileSelect })
           ] }),
@@ -34630,7 +34629,7 @@ Object.assign(lookup, {
   io: lookup,
   connect: lookup
 });
-const socket = lookup("http://127.0.0.1:3000/");
+const socket = lookup("https://instaclone-n0oa.onrender.com/");
 const Friends = ({ username, setRoom, setMate, setMessages }) => {
   var _a;
   const [friend, setFriend] = reactExports.useState(null);
@@ -34652,7 +34651,7 @@ const Friends = ({ username, setRoom, setMate, setMessages }) => {
     setMate(friend);
   };
   return /* @__PURE__ */ jsxs("div", { className: "friend", onClick: handleSelectFriend, children: [
-    /* @__PURE__ */ jsx("img", { src: `${"http://127.0.0.1:3000/"}${friend == null ? void 0 : friend.avatar}`, alt: "" }),
+    /* @__PURE__ */ jsx("img", { src: `${"https://instaclone-n0oa.onrender.com/"}${friend == null ? void 0 : friend.avatar}`, alt: "" }),
     /* @__PURE__ */ jsxs("div", { children: [
       /* @__PURE__ */ jsx("h4", { children: friend == null ? void 0 : friend.username }),
       /* @__PURE__ */ jsx("p", { children: message ? message : (_a = friend == null ? void 0 : friend.chats[0].messages[friend.chats[0].messages.length - 1]) == null ? void 0 : _a.text })
@@ -34662,7 +34661,7 @@ const Friends = ({ username, setRoom, setMate, setMessages }) => {
 const Message = ({ username, text, id: id2, avatar }) => {
   const { isLogged } = reactExports.useContext(LoggedContext);
   return /* @__PURE__ */ jsxs("div", { className: "message", style: { display: "flex", justifyContent: username == isLogged.username ? "right" : "left" }, children: [
-    username == isLogged.username ? "" : /* @__PURE__ */ jsx("img", { src: `${"http://127.0.0.1:3000/"}${avatar}`, alt: "avatar" }),
+    username == isLogged.username ? "" : /* @__PURE__ */ jsx("img", { src: `${"https://instaclone-n0oa.onrender.com/"}${avatar}`, alt: "avatar" }),
     /* @__PURE__ */ jsx("p", { style: { backgroundColor: username == isLogged.username ? "rgb(236, 236, 236)" : "white", border: username == isLogged.username ? "none" : "1px solid rgb(220, 220, 220)" }, children: text })
   ] });
 };
@@ -34716,7 +34715,7 @@ function Chats() {
           /* @__PURE__ */ jsxs("div", { className: "chat__top", children: [
             (friend == null ? void 0 : friend.avatar) ? /* @__PURE__ */ jsxs("div", { children: [
               /* @__PURE__ */ jsx("svg", { onClick: previousPageMobile, xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 448 512", children: /* @__PURE__ */ jsx("path", { d: "M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" }) }),
-              /* @__PURE__ */ jsx("img", { src: `${"http://127.0.0.1:3000/"}${friend == null ? void 0 : friend.avatar}`, alt: "friend_logo" })
+              /* @__PURE__ */ jsx("img", { src: `${"https://instaclone-n0oa.onrender.com/"}${friend == null ? void 0 : friend.avatar}`, alt: "friend_logo" })
             ] }) : " click ",
             (friend == null ? void 0 : friend.username) ? /* @__PURE__ */ jsx("h4", { children: friend == null ? void 0 : friend.username }) : " friend to start message"
           ] }),
@@ -34735,7 +34734,7 @@ function Chats() {
           ] })
         ] }) : /* @__PURE__ */ jsxs("div", { className: "container__chat", children: [
           /* @__PURE__ */ jsxs("div", { className: "chat__top", children: [
-            (friend == null ? void 0 : friend.avatar) ? /* @__PURE__ */ jsx("img", { src: `${"http://127.0.0.1:3000/"}${friend == null ? void 0 : friend.avatar}`, alt: "friend_logo" }) : " click ",
+            (friend == null ? void 0 : friend.avatar) ? /* @__PURE__ */ jsx("img", { src: `${"https://instaclone-n0oa.onrender.com/"}${friend == null ? void 0 : friend.avatar}`, alt: "friend_logo" }) : " click ",
             (friend == null ? void 0 : friend.username) ? /* @__PURE__ */ jsx("h4", { children: friend == null ? void 0 : friend.username }) : " friend to start message"
           ] }),
           /* @__PURE__ */ jsxs("div", { className: "chat__square", children: [
