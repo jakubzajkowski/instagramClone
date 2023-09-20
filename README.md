@@ -12,6 +12,47 @@ InstaClone is a feature-rich web application that emulates the core functionalit
 - Search Functionality: Easily find users, posts, and hashtags through the powerful search feature. Discover specific content or explore a particular topic of interest.
 - Responsive Design: Access InstaClone from any device, including desktops, laptops, tablets, and smartphones. The responsive design ensures an optimized experience across various screen sizes.
 
+## Mobile View
+<table>
+  <tr>
+    <td valign="top"><img src="./imgs/mobile0.JPG"/></td>
+    <td valign="top"><img src="./imgs/mobile1.JPG"/></td>
+    <td valign="top"><img src="./imgs/mobile2.JPG"/></td>
+  </tr>
+</table>
+
+## Desktop View
+
+### Login page
+
+<p align="center" style="margin-top: 30px;">
+  <img src="./imgs/screen0.JPG"/>
+</p>
+
+### Home page
+
+<p align="center" style="margin-top: 30px;">
+  <img src="./imgs/screen1.JPG"/>
+</p>
+
+### Account page
+
+<p align="center" style="margin-top: 30px;">
+  <img src="./imgs/screen2.JPG"/>
+</p>
+
+### Messages page
+
+<p align="center" style="margin-top: 30px;">
+  <img src="./imgs/screen3.JPG"/>
+</p>
+
+### Post page
+
+<p align="center" style="margin-top: 30px;">
+  <img src="./imgs/screen4.JPG"/>
+</p>
+
 ## Technologies Used
 ### Front-end:
 - React: A JavaScript library for building user interfaces.
@@ -29,6 +70,10 @@ InstaClone is a feature-rich web application that emulates the core functionalit
 - Session: For user authentication and authorization.
 - Bcrypt: A library for hashing passwords.
 - Multer: For catch avatars and photos.
+## Deployment
+That deployment for this particular clone is currently unavailable due to concerns raised by Google's security protocols. This decision is a result of the advanced realism and authenticity of this clone, which has led Google to believe that this page may be associated with phishing activities. 
+I'm trying to change this current situation.
+
 ## License
 This project is licensed under the MIT License. Feel free to use, modify, and distribute the code as permitted by the license.
 
